@@ -1,6 +1,8 @@
-#include "functions.h"
+//#include "functions.h"
 
-int main(){
+
+//int main(){
+    /*
         //Creacion de las armas
         //Items Magicos
         shared_ptr<Util> baston = make_shared<Baston>("Baston Magico", "Ilumina solamente la vista de quien lo posee", 1, 10, 15, true);
@@ -37,7 +39,7 @@ int main(){
         //Mercenario mercenario("Mercenario", 4, 100, 150, true, armas_mercenario, "Disparar en el blanco", 90);
         //Paladin paladin("Paladin", 7, 100, 400, true, armas_paladin,"Uso de Garrote", 3);
         
-        /*
+        
         //Mostrar info de los magos
         test_mostrarInfo_magos(brujo, conjurador, hechicero, nigromante);
     
@@ -64,5 +66,5 @@ int main(){
     
         //TEST USO DE COMODIN - PALADIN
         test_usarComodinPaladin(paladin);
-        */
-}
+    */
+       

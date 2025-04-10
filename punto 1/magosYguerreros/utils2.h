@@ -82,7 +82,7 @@ class Guerrero: public Personaje {
         //Metodos
         virtual void morir() override;
         virtual void evolucionar(int daño_agregado, int vida_agregada) override;
-        virtual void mostrarInfo() = 0;
+        virtual void mostrarInfo() override = 0;
         
         virtual void usarHabilidad();
         virtual void cambiarHabilitad(const string& nueva_habilidad);

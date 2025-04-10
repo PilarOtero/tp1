@@ -11,8 +11,8 @@
 #include "garrote.h"
 #include "utils.h"
 
-void handle_mostrar_items(Baston baston, LibroDeHechizos libro, Pocion pocion, Amuleto amuleto);
-void handle_mostrar_armas(HachaSimple hacha_simple, HachaDoble hacha_doble, Lanza lanza, Espada espada, Garrote garrote);
+void handle_mostrar_items(Baston& baston, LibroDeHechizos& libro, Pocion& pocion, Amuleto& amuleto);
+void handle_mostrar_armas(HachaSimple& hacha_simple, HachaDoble& hacha_doble, Lanza& lanza, Espada& espada, Garrote& garrote);
 void test_evolucionar_item(Baston& baston);
 void test_involucionar_item(LibroDeHechizos& libro);
 void test_romper_item(Pocion& pocion);
