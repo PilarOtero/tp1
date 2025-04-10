@@ -1,0 +1,111 @@
+#include "amuleto.h"
+#include "baston.h"
+#include "pocion.h"
+#include "libroDeHechizos.h"
+#include "lanza.h"
+#include "hachaDoble.h"
+#include "hachaSimple.h"
+#include "espada.h"
+#include "garrote.h"
+#include "functions.h"
+
+
+void handle_mostrar_items(Baston& baston, LibroDeHechizos& libro, Pocion& pocion, Amuleto& amuleto) {
+    cout << "SECCION ITEMS MAGICOS" << endl;
+    baston.mostrarInfo();
+    libro.mostrarInfo();
+    pocion.mostrarInfo();
+    amuleto.mostrarInfo();
+}
+
+void handle_mostrar_armas(HachaSimple& hacha_simple, HachaDoble& hacha_doble, Lanza& lanza, Espada& espada, Garrote& garrote) {
+    cout << "------------------------------\nSECCION ARMAS DE COMBATE" << endl;
+    hacha_simple.mostrarInfo();
+    hacha_doble.mostrarInfo();
+    lanza.mostrarInfo();    
+    espada.mostrarInfo();
+    garrote.mostrarInfo();
+
+}
+
+void test_evolucionar_item(Baston& baston){
+    cout << "TEST DE EVOLUCION - ITEM MAGICO" << endl;
+    
+    baston.usar();
+    baston.evolucionar(200,15);
+    cout << "------------------------------" << endl;
+}
+
+void test_involucionar_item(LibroDeHechizos& libro){
+    cout << "TEST DE INVOLUCION - ITEM MAGICO" << endl;
+    
+    libro.usar();
+    libro.involucionar(1500,1000);
+    cout << "------------------------------" << endl;
+}
+
+void test_romper_item(Pocion& pocion){
+    cout << "TEST ROMPER - ITEM MAGICO" << endl;
+    
+    pocion.usar();
+    pocion.romper();
+    cout << "------------------------------" << endl;
+}
+
+void test_ver_ma_pocion(Pocion& pocion){
+    cout << "TEST VER SI ES MAGICO ACTIVO - ITEM MAGICO" << endl;
+    
+    if (pocion.getMagiaActiva() == true) {
+        cout << "->MAGIA ACTIVA " << endl;
+    }
+    else {
+        cout << "->MAGIA INACTIVA " << endl;
+    }
+    cout << "------------------------------" << endl;
+}
+
+void test_evolucionar_arma(HachaSimple& hacha_simple){
+    cout << "TEST DE EVOLUCION - ARMA" << endl; 
+    
+    hacha_simple.usar();
+    hacha_simple.evolucionar(1400,153);
+    cout << "------------------------------" << endl;
+}
+
+void test_ver_peso_arma(Espada& espada){
+    cout << "TEST DE PESO - ARMA" << endl;
+    
+    espada.usar();
+    cout << "ESPADA -> PESO " << espada.getPeso() << " kg" << endl;
+    cout << "------------------------------" << endl;
+}
+
+void test_involucionar_garrote(Garrote& garrote){
+    cout << "TEST DE INVOLUCION - ARMA" << endl;
+    
+    garrote.usar();
+    garrote.involucionar(150,45);
+    cout << "------------------------------" << endl;
+}
+
+void test_reparar_garrote(Garrote& garrote){
+    cout << "TEST DE REPARO - ARMA" << endl;
+    garrote.usar();
+    garrote.reparar(20, 15); 
+    cout << "------------------------------" << endl;
+}
+
+void test_espada_cortante(Espada& espada){
+    cout << "TEST DE ESPADA CORTANTE" << endl;
+    espada.usar();
+    espada.desafilar();
+    espada.reparar(20, 15);
+    cout << "------------------------------" << endl;
+}
+
+void test_pocion_magica(Pocion& pocion){
+    cout << "TEST POCION VIOLETA" << endl;
+    pocion.usar();
+    pocion.pocion_magica();
+    cout << "------------------------------" << endl;
+}
