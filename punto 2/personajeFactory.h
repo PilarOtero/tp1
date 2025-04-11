@@ -30,7 +30,7 @@ using namespace std;
 
 //PERSONAJES
 enum class Personajes {
-    brujo,
+    brujo = 1,
     conjurador,
     hechicero,
     nigromante,
@@ -43,7 +43,7 @@ enum class Personajes {
 
 //ARMAS
 enum class Armas {
-    amuleto,
+    amuleto = 1,
     baston,
     pocion,
     libroDeHechizos,
@@ -59,5 +59,4 @@ class PersonajeFactory {
         static shared_ptr<Personaje> crearPersonaje(Personajes personaje);
         static shared_ptr<Util> crearArma(Armas arma);
         static shared_ptr<Personaje> crearPersonajeArmado(Personajes personaje, pair<shared_ptr<Util>, shared_ptr<Util>>);
-
 };

@@ -3,9 +3,6 @@
 //Constructor
 Amuleto::Amuleto(const string& nombre, const string& poder, int daño, int nivel_de_uso, int duracion, bool magiaActiva, bool suerte_amuleto): ItemMagico(nombre, poder, daño, nivel_de_uso, duracion, magiaActiva), traeSuerte(suerte_amuleto) {}
 
-//Getter
-bool Amuleto:: getTraeSuerte() {return traeSuerte;}
-
 //Metodos
 void Amuleto:: mostrarInfo() {
     cout << "- Item -> AMULETO " << endl;

@@ -1,11 +1,7 @@
 #include "baston.h"
 
 //Constructor
-Baston:: Baston(const string& nombre, const string& poder, int daño, int nivel_de_uso, int duracion, bool magiaActiva): ItemMagico(nombre, poder, daño, nivel_de_uso, duracion, magiaActiva) {}
-
-
-//Getter
-bool Baston:: getContrincantePierdeTurno() { return contrincantePierdeTurno; }
+Baston:: Baston(const string& nombre, const string& poder, int daño, int nivel_de_uso, int duracion, bool magiaActiva, bool trae_suerte_baston): ItemMagico(nombre, poder, daño, nivel_de_uso, duracion, magiaActiva), traeSuerte(trae_suerte_baston) {}
 
 //Metodos
 void Baston:: mostrarInfo() {
@@ -25,9 +21,11 @@ void Baston:: mostrarInfo() {
     cout << "------------------------------" << endl;
 }
 
-void Baston:: mostrarContrincanteTurno(){
-    if (contrincantePierdeTurno == true) {
-        cout << "Tuviste Suerte. El Bastin hizo que tu contrincante pierda el turno!" << endl;
+void Baston:: mostrarSuerte(){
+    if (traeSuerte == true) {
+        cout << "Tuviste Suerte. El Baston ha aumentado su duracion" << endl;
+        duracion += 10;
+        cout << "DURACION ->" << duracion << endl;
     }
     else {
         cout << "Lamentablemente, el Baston no te trajo suerte..." << endl;

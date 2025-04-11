@@ -13,6 +13,7 @@ Mago:: Mago(const string& nombre_mago, int nivel_mago, int vida_mago, int fuerza
 }
 
 //Getters
+string Mago:: getNombre() { return nombre; }
 int Mago:: getNivel() { return nivel; }
 int Mago:: getVida() { return vida; }
 int Mago:: getFuerza() { return fuerza; }
@@ -69,7 +70,8 @@ Guerrero:: Guerrero(const string& nombre_guerrero, int nivel_guerrero, int vida_
     habilidad = habilidad_guerrero;
 }
 
-//Getter
+//Getters
+string Guerrero:: getNombre() { return nombre; }
 int Guerrero:: getNivel() { return nivel; }
 int Guerrero:: getVida() { return vida; }
 int Guerrero:: getFuerza() { return fuerza; }

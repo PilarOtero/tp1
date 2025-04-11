@@ -1,10 +1,10 @@
 #include "caballero.h"
 
 //Constructor
-Caballero:: Caballero(const string& nombre_caballero, int nivel_caballero, int vida_caballero, int fuerza_caballero, bool experiencia_caballero, pair<shared_ptr<Util>, shared_ptr<Util>> armas_caballero, const string& habilidad_caballero, const string& armaSecreta_caballero, const string& tipoDeCaballero_caballero): Guerrero(nombre_caballero, nivel_caballero, vida_caballero, fuerza_caballero, experiencia_caballero, armas_caballero, habilidad_caballero), armaSecreta(armaSecreta_caballero), tipoDeCaballero(tipoDeCaballero_caballero) {}
+Caballero:: Caballero(const string& nombre_caballero, int nivel_caballero, int vida_caballero, int fuerza_caballero, bool experiencia_caballero, pair<shared_ptr<Util>, shared_ptr<Util>> armas_caballero, const string& habilidad_caballero, int nivelDeValentia_caballero, const string& tipoDeCaballero_caballero): Guerrero(nombre_caballero, nivel_caballero, vida_caballero, fuerza_caballero, experiencia_caballero, armas_caballero, habilidad_caballero), nivelDeValentia(nivelDeValentia_caballero), tipoDeCaballero(tipoDeCaballero_caballero) {}
 
 //Getters
-string Caballero:: getArmaSecreta() { return armaSecreta; }
+int Caballero:: getnivelDeValentia() { return nivelDeValentia; }
 string Caballero:: getTipoDeCaballero() { return tipoDeCaballero; }
 
 //Metodos
@@ -15,7 +15,7 @@ void Caballero:: mostrarInfo() {
     cout << "Vida -> " << vida << endl;
     cout << "Fuerza -> " << fuerza << endl;
     cout << "Habilidad -> " << habilidad << endl;
-    cout << "Arma Secreta -> " << armaSecreta << endl;
+    cout << "Nivel de Valentia -> " << nivelDeValentia << endl;
     cout << "Tipo de Caballero -> " << tipoDeCaballero << endl;
 
     if (experiencia == true) {

@@ -27,6 +27,11 @@ void Pocion:: mostrarInfo() {
 //VER LO DE LA VIDA
 void Pocion:: pocion_magica() {
     if (color == "violeta"){
-        cout << "Tuviste suerte... la pocion es violeta, por lo que se te han sumado 100 años de vida" << endl;
+        cout << "Tuviste suerte... la pocion es violeta, por lo que se le ha mejorado su poder;" << endl;
+        poder = "Ser invisible";
+        cout << "NUEVO PODER -> " << poder << endl;   
+    }
+    else{
+        cout << "Lamentablemente, la pocion no es violeta, por lo que no se le ha mejorado su poder..." << endl;
     }
 }

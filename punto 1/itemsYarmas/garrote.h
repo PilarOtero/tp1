@@ -4,11 +4,11 @@
 
 class Garrote: public ArmaCombate {
     private:
-        bool destruye_armas = true;
+        bool destruyeArmas;
     
     public:
         //Constructor
-        Garrote(const string& nombre, int daño, int duracion, int nivel_de_uso, float peso, bool destruye_armas);
+        Garrote(const string& nombre, int daño, int duracion, int nivel_de_uso, float peso, bool destruyeArmas);
         
         //Getters
         bool getDestruyeArmas();

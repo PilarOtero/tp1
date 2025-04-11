@@ -8,11 +8,7 @@ class Amuleto: public ItemMagico {
         //Constructor
         Amuleto(const string& nombre, const string& poder, int daño, int nivel_de_uso, int duracion, bool magiaActiva, bool traeSuerte);
 
-        //Getters
-        bool getTraeSuerte();
-
         //Metodos
         void mostrarInfo() override;
-        
         void mostrarSuerte();
 };

@@ -3,12 +3,12 @@
 
 class Espada: public ArmaCombate {
     private:
-        bool cortante = true;
+        bool cortante;
         int filo;
     
         public:
         //Constructor
-        Espada(const string& nombre, int daño, int duracion, int nivel_de_uso, float peso, bool es_cortante, int filo);
+        Espada(const string& nombre, int daño, int duracion, int nivel_de_uso, float peso, bool cortante, int filo);
         
         //Getters
         int getFilo();

@@ -6,6 +6,10 @@ using namespace std;
 
 class Util {
     public: 
+        //Getters
+        virtual string getNombre() = 0;
+        virtual int getDaño() = 0;
+        virtual int getDuracion() = 0;
         //Metodos
         virtual void usar() = 0;
         virtual void mostrarInfo() = 0;
@@ -30,8 +34,11 @@ class ItemMagico: public Util {
         ItemMagico(const string& nombre, const string& poder, int daño, int duracion, int nivel, bool magiaActiva);
 
         //Getters
-        string getPoder();
-        bool getMagiaActiva();
+        virtual string getNombre() override;
+        virtual int getDaño() override;
+        virtual int getDuracion() override;
+        virtual string getPoder();
+        virtual bool getMagiaActiva();
 
         //Metodos
         virtual void usar() override;
@@ -54,7 +61,10 @@ class ArmaCombate: public Util{
         ArmaCombate(const string& nombre, int daño, int duracion, int nivel_de_uso, float peso);
                 
         //Getters
-            virtual float getPeso();
+        virtual string getNombre() override;
+        virtual int getDaño() override;
+        virtual int getDuracion() override;
+        virtual float getPeso();
     
         //Metodos
         virtual void usar() override = 0;

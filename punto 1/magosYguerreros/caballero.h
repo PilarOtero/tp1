@@ -2,14 +2,14 @@
 
 class Caballero: public Guerrero {
     private:
-        string armaSecreta;
+        int nivelDeValentia;
         string tipoDeCaballero;
     public:
         //Constructor
-        Caballero(const string& nombre, int nivel, int vida, int fuerza, bool experiencia, pair<shared_ptr<Util>, shared_ptr<Util>> armas, const string& habilidad, const string& armaSecreta, const string& tipoDeCaballero);
+        Caballero(const string& nombre, int nivel, int vida, int fuerza, bool experiencia, pair<shared_ptr<Util>, shared_ptr<Util>> armas, const string& habilidad, int nivelDeValentia, const string& tipoDeCaballero);
         
         //Getters
-        string getArmaSecreta();
+        int getnivelDeValentia();
         string getTipoDeCaballero();
 
         //Metodos

@@ -3,16 +3,13 @@
 
 class Baston: public ItemMagico {
     private:
-        bool contrincantePierdeTurno;
+        bool traeSuerte;
     
         public:
         //Constructor
-        Baston(const string& nombre, const string& poder, int daño, int nivel_de_uso, int duracion, bool magiaActiva);
-        
-        //Getter
-        bool getContrincantePierdeTurno();
+        Baston(const string& nombre, const string& poder, int daño, int nivel_de_uso, int duracion, bool magiaActiva, bool traeSuerte);
 
         //Metodos
         void mostrarInfo() override;
-        void mostrarContrincanteTurno();
+        void mostrarSuerte();
 };

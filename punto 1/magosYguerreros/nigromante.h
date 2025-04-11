@@ -15,6 +15,6 @@ class Nigromante: public Mago {
 
         //Metodos
         void mostrarInfo() override;
-        //Metodo para absorver energia de la Muerte (capacidad de los nigromantes)
+        //Metodo para absorber energia de la Muerte (capacidad de los nigromantes)
         void absorberEnergia();
 };

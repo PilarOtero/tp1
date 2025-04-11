@@ -14,6 +14,9 @@ ItemMagico:: ItemMagico(const string& nombre_item, const string& poder_item, int
 }
 
 //Getters
+string ItemMagico:: getNombre() { return nombre; }
+int ItemMagico:: getDaño() { return daño; }
+int ItemMagico:: getDuracion() { return duracion; }
 string ItemMagico:: getPoder() { return poder; }
 bool ItemMagico:: getMagiaActiva() { return magiaActiva; }
 
@@ -67,7 +70,10 @@ ArmaCombate:: ArmaCombate(const string& nombre_arma, int daño_arma, int duracio
     peso = peso_arma; 
 }
 
-//Getter
+//Getters
+string ArmaCombate:: getNombre() { return nombre; }
+int ArmaCombate:: getDaño() { return daño; }
+int ArmaCombate:: getDuracion() { return duracion; }
 float ArmaCombate:: getPeso() { return peso; }
 
 void ArmaCombate:: evolucionar(int daño_agregado, int duracion_agregada) {

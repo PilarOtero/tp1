@@ -11,6 +11,7 @@ using namespace std;
 class Personaje {
     public:
         //Getters
+        virtual string getNombre() = 0;
         virtual int getNivel() = 0;
         virtual int getVida() = 0;
         virtual int getFuerza() = 0;
@@ -41,6 +42,7 @@ class Mago: public Personaje {
         Mago(const string& nombre, int nivel, int vida, int fuerza, const string& poder, bool experiencia, pair<shared_ptr<Util>, shared_ptr<Util>> armas);
         
         //Getters
+        virtual string getNombre() override;
         virtual int getNivel() override;
         virtual int getVida() override;
         virtual int getFuerza() override;
@@ -73,6 +75,7 @@ class Guerrero: public Personaje {
         Guerrero(const string& nombre, int nivel, int vida, int fuerza, bool experiencia, pair<shared_ptr<Util>, shared_ptr<Util>> armas, const string& habilidad);
         
         //Getters
+        virtual string getNombre() override;
         virtual int getNivel() override;
         virtual int getVida() override;
         virtual int getFuerza() override;
