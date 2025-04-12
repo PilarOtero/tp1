@@ -25,7 +25,7 @@ void displayAtaque();
 string toStringAtaque(Ataque ataque);
 Ataque elegirAtaque();
 
-//Ataque ataqueRival;
+//Rival
 Ataque ataqueRival();
 shared_ptr<Util> armarival(bool esGuerrero);
 shared_ptr<Personaje> personajeRival(shared_ptr<Util> armaj2, bool esGuerrero);

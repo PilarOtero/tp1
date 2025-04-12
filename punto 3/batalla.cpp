@@ -28,6 +28,7 @@ void displayPersonajes(){
 }
 
 int elegirPersonaje(){
+    //Devuelvo la opcion elegida por consola para luego crear el Personaje
     int opcion;
     while(true){
         displayPersonajes();
@@ -59,6 +60,7 @@ void displayArmas(){
 }
 
 shared_ptr<Util> elegirArma(){
+    //A partir de la opcion de Arma elegida (se corresponde con los valores de la clase Armas), utilizo la funcion realizada en el punto 2 para crearla
     int opcion;
     while(true){
         displayArmas();
@@ -69,8 +71,7 @@ shared_ptr<Util> elegirArma(){
             cout << "Opcion invalida. Intente nuevamente." << endl;
             continue;
         }
-        
-        //Con la opcion elegida por el jugador, creo el arma en funcion del numero asignado en enum class Armas
+
         return PersonajeFactory:: crearArma(static_cast<Armas>(opcion));
     }
 }
@@ -80,6 +81,7 @@ void displayAtaque(){
 }
 
 string toStringAtaque(Ataque ataque){
+    //Convierto la opcion de Ataque elegida a string para poder acceder en el main
     switch(ataque){
         case Ataque:: golpefuerte: return "Golpe Fuerte";
         case Ataque:: golperapido: return "Golpe Rapido";
@@ -106,7 +108,7 @@ Ataque elegirAtaque(){
     }
 }
 
-//ATAQUE RIVAL -> aleatorio (reutilizo la funcion utilizada en Personaje Factory) y asi genero el tipo de ataque y el personaje rival
+//RIVAL -> aleatorio (reutilizo las funciones utilizadas en el punto 2) y asi genero el tipo de ataque, el personaje rival y su arma
 Ataque ataqueRival(){
     return static_cast<Ataque>(generar_numero(1, 3));
 }
@@ -131,14 +133,17 @@ void simularBatalla(shared_ptr<Personaje> jugador1, shared_ptr<Util> armaj1, sha
 
         //Ataque rival
         Ataque ataquej2 = ataqueRival();
-
+        
+        //Impresion del HP de cada jugador
         cout << "El " << jugador1->getNombre() << " tiene " << hp1 << " HP y el " << jugador2->getNombre() << " tiene " << hp2 << " HP" << endl;
 
+        //Casos de la batalla
         if (ataquej2 == ataquej1){
             cout << "Ambos han elegido " << toStringAtaque(ataquej1) << endl;
             cout << "¡Empate!" << endl;
             cout << "Siguiente turno..." << endl;
         }
+
         else if ((ataquej1 == Ataque:: golpefuerte && ataquej2 == Ataque:: golperapido) || 
                  (ataquej1 == Ataque:: golperapido && ataquej2 == Ataque:: defensaygolpe) ||
                  (ataquej1 == Ataque:: defensaygolpe && ataquej2 == Ataque:: golpefuerte)){
@@ -147,15 +152,18 @@ void simularBatalla(shared_ptr<Personaje> jugador1, shared_ptr<Util> armaj1, sha
             cout << "\n¡Has ganado el turno!" << endl;
             hp2 -= 10; 
         }
+
         else{
             cout << "El " << jugador2->getNombre() << " ataca con " << armaj2->getNombre() << " y hace 10 puntos de daño " <<endl;
             cout << "\n¡Has perdido el turno!" << endl;
             hp1 -=10;
         }
+
     ronda ++; 
     cout << "-------------------------" << endl; 
     }
 
+    //Si el HP de alguno de los jugadores llega a 0, se termina la batalla
     cout << "-------- FIN DE LA BATALLA --------" << endl;
     if (hp2 <= 0){
         cout << "El " << jugador1->getNombre() << " ha salido victorioso" << endl;
