@@ -8,6 +8,7 @@ bool generarEsGuerrero(){
     int n = generar_numero(0,1);
     if (n == 0) return false;
     if (n == 1) return true;
+    return false;
 }
 
 void displayPersonajes(){
@@ -118,26 +119,17 @@ shared_ptr<Personaje> personajeRival(shared_ptr<Util> armaj2, bool esGuerrero){
     return generarPersonajeRandom(esGuerrero, {armaj2, nullptr});  
 }
 
-void simularBatalla(shared_ptr<Persoaje> jugador1, shared_ptr<Personaje> jugador2){
+void simularBatalla(shared_ptr<Personaje> jugador1, shared_ptr<Util> armaj1, shared_ptr<Personaje> jugador2, shared_ptr<Util> armaj2){
     int hp1 = 100;
     int hp2 = 100;
     int ronda = 1;
-
-    cout << "------- BIENVENIDO -------" << endl;
-    cout << "LA BATALLA HA COMENZADO" << endl;
     
     while (hp1 >= 0 && hp2 >= 0){
         //Seleccion del ataque por parte del jugador 1 (por consola)
         displayAtaque();
         Ataque ataquej1 = elegirAtaque();
-        int opcion = elegirPersonaje();
-        shared_ptr<Util> armaj1 = elegirArma();
-        shared_ptr<Personaje> jugador1 = PersonajeFactory:: crearPersonajeArmado(static_cast<Personajes>(opcion), {armaj1, nullptr});
-               
+
         //Ataque rival
-        bool esGuerrero = generarEsGuerrero();
-        shared_ptr<Util> armaj2 = armarival(esGuerrero);
-        shared_ptr<Personaje> jugador2 = personajeRival(armaj2, esGuerrero);
         Ataque ataquej2 = ataqueRival();
 
         cout << "===== RONDA " << ronda << " ====" << endl;
