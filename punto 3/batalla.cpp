@@ -122,8 +122,8 @@ shared_ptr<Personaje> personajeRival(shared_ptr<Util> armaj2, bool esGuerrero){
 }
 
 void simularBatalla(shared_ptr<Personaje> jugador1, shared_ptr<Util> armaj1, shared_ptr<Personaje> jugador2, shared_ptr<Util> armaj2){
-    int hp1 = 100;
-    int hp2 = 100;
+    int hp1 = jugador1->getVida();
+    int hp2 = jugador2->getVida();
     int ronda = 1;
     
     while (hp1 > 0 && hp2 > 0){
@@ -141,7 +141,6 @@ void simularBatalla(shared_ptr<Personaje> jugador1, shared_ptr<Util> armaj1, sha
         if (ataquej2 == ataquej1){
             cout << "Ambos han elegido " << toStringAtaque(ataquej1) << endl;
             cout << "¡Empate!" << endl;
-            cout << "Siguiente turno..." << endl;
         }
 
         else if ((ataquej1 == Ataque:: golpefuerte && ataquej2 == Ataque:: golperapido) || 
@@ -151,14 +150,12 @@ void simularBatalla(shared_ptr<Personaje> jugador1, shared_ptr<Util> armaj1, sha
             cout << "El " << jugador1->getNombre() << " ataca con " << armaj1->getNombre() << " y hace 10 puntos de daño " <<endl;
             cout << "\n¡Has ganado el turno!" << endl;
             hp2 -= 10; 
-            cout << "Siguiente turno..." << endl;
         }
 
         else{
             cout << "El " << jugador2->getNombre() << " ataca con " << armaj2->getNombre() << " y hace 10 puntos de daño " <<endl;
             cout << "\n¡Has perdido el turno!" << endl;
             hp1 -=10;
-            cout << "Siguiente turno..." << endl;
         }
 
     ronda ++; 
