@@ -3,7 +3,7 @@
 
 using namespace std;
 
-//(Podria obviar esta funcion)
+//(Podría obviar esta función)
 bool generarEsGuerrero(){
     int n = generar_numero(0,1);
     if (n == 0) return false;
@@ -13,18 +13,8 @@ bool generarEsGuerrero(){
 
 void displayPersonajes(){
     cout << "PERSONAJES DISPONIBLES ----" << endl;
-    cout << "PERSONAJES MÁGICOS" << endl;
-    cout << "1. Brujo" << endl;
-    cout << "2. Conjurador" << endl;
-    cout << "3. Hechicero" << endl;
-    cout << "4. Nigromante" << endl;
-    cout << "\nPERSONAJES GUERREROS" << endl;
-    cout << "5. Gladiador" << endl;
-    cout << "6. Paladín" << endl;
-    cout << "7. Caballero" << endl;
-    cout << "8. Bárbaro" << endl;
-    cout << "9. Mercenario" << endl;
-    cout << "\n";
+    cout << "PERSONAJES MÁGICOS\n1. Brujo\n2. Conjurador\n3. Hechicero\n4. Nigromante" << endl;
+    cout << "\nPERSONAJES GUERREROS\n5. Gladiador\n6. Paladín\n7. Caballero\n8. Bárbaro\n9. Mercenario\n" << endl;
 }
 
 int elegirPersonaje(){
@@ -32,8 +22,9 @@ int elegirPersonaje(){
     int opcion;
     while(true){
         displayPersonajes();
-        cout << "Elija un personaje (1-9): ";
+        cout << "Elija un personaje (1-9) >> ";
         cin >> opcion;
+        cout << "\n";
 
         if (opcion < 1 || opcion > 9){
             cout << "Opcián invalida. Intente nuevamente." << endl;
@@ -46,17 +37,8 @@ int elegirPersonaje(){
 
 void displayArmas(){
     cout << "ARMAS DISPONIBLES ----" << endl;
-    cout << "ARMAS MÁGICAS" << endl;
-    cout << "1. Amuleto" << endl;
-    cout << "2. Bastón" << endl;
-    cout << "3. Poción" << endl;
-    cout << "4. Libro de Hechizos" << endl;
-    cout << "\nARMAS DE COMBATE" << endl;
-    cout << "5. Espada" << endl;
-    cout << "6. Garrote" << endl;
-    cout << "7. Hacha Simple" << endl;
-    cout << "8. Hacha Doble" << endl;
-    cout << "9. Lanza" << endl;
+    cout << "ARMAS MÁGICAS\n1. Amuleto\n2. Bastón\n3. Poción\n4. Libro de Hechizos" << endl;
+    cout << "\nARMAS DE COMBATE\n5. Espada\n6. Garrote\n7. Hacha Simple\n8. Hacha Doble\n9. Lanza" << endl;
 }
 
 shared_ptr<Util> elegirArma(){
@@ -64,8 +46,9 @@ shared_ptr<Util> elegirArma(){
     int opcion;
     while(true){
         displayArmas();
-        cout << "Elija un arma (1-9): ";
+        cout << "Elija un arma (1-9) >> ";
         cin >> opcion;
+        cout << "\n";
 
         if (opcion < 1 || opcion > 9){
             cout << "Opción inválida. Intente nuevamente." << endl;
@@ -95,8 +78,9 @@ Ataque elegirAtaque(){
     
     while(true){
         displayAtaque();
-        cout << "Elija un ataque (1-3): ";
+        cout << "Elija un ataque (1-3) >> ";
         cin >> opcion;
+        cout << "\n";
 
         if (opcion < 1 || opcion > 3){
             cout << "Opción invalida. Intente nuevamente." << endl;
@@ -134,13 +118,13 @@ void simularBatalla(shared_ptr<Personaje> jugador1, shared_ptr<Util> armaj1, sha
         //Ataque rival
         Ataque ataquej2 = ataqueRival();
         
-        //Impresion del HP de cada jugador
+        //Impresión del HP de cada jugador
         cout << "El " << jugador1->getNombre() << " tiene " << hp1 << " HP y el " << jugador2->getNombre() << " tiene " << hp2 << " HP" << endl;
 
         //Casos de la batalla
         if (ataquej2 == ataquej1){
             cout << "Ambos han elegido " << toStringAtaque(ataquej1) << endl;
-            cout << "¡Empate!" << endl;
+            cout << "\n¡Empate!" << endl;
         }
 
         else if ((ataquej1 == Ataque:: golpefuerte && ataquej2 == Ataque:: golperapido) || 
