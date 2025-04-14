@@ -23,6 +23,7 @@ void HachaSimple:: usar() {
 
 void HachaSimple:: reparar(int daño_agregado, int duracion_agregada) {
     cout << "Reparando el Hacha Simple...\n..." << endl;
+    //Actualizo el daño, la duración y defino afilada como true
     daño += daño_agregado;
     duracion += duracion_agregada;
     afilada = true;

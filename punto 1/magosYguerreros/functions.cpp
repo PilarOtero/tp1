@@ -1,7 +1,7 @@
 #include "functions.h"
 
 void test_mostrarInfo_magos(shared_ptr<Brujo> brujo, shared_ptr<Conjurador> conjurador, shared_ptr<Hechicero> hechicero, shared_ptr<Nigromante> nigromante){
-    cout << "SECCION MAGOS" << endl;
+    cout << "SECCIÓN MAGOS" << endl;
     brujo->mostrarInfo();
     conjurador->mostrarInfo();
     hechicero->mostrarInfo();
@@ -10,7 +10,7 @@ void test_mostrarInfo_magos(shared_ptr<Brujo> brujo, shared_ptr<Conjurador> conj
 }
 
 void test_mostrarInfo_guerreros(shared_ptr<Gladiador> gladiador, shared_ptr<Paladin> paladin, shared_ptr<Caballero> caballero, shared_ptr<Barbaro> barbaro, shared_ptr<Mercenario> mercenario){
-    cout << "------------------------------\nSECCION GUERREROS" << endl;
+    cout << "------------------------------\nSECCIÓN GUERREROS" << endl;
     gladiador->mostrarInfo();
     paladin->mostrarInfo();
     caballero->mostrarInfo();
@@ -18,7 +18,7 @@ void test_mostrarInfo_guerreros(shared_ptr<Gladiador> gladiador, shared_ptr<Pala
 }
 
 void test_barbaro_furioso(shared_ptr<Barbaro> barbaro, int furia){
-    cout << "TEST BARBARO FURIOSO" << endl;
+    cout << "TEST BÁRBARO FURIOSO" << endl;
     barbaro->estaFurioso(furia);
     cout << "------------------------------" << endl;
 }
@@ -36,19 +36,19 @@ void test_mostrar_tipoDeCaballero(shared_ptr<Caballero> caballero){
 }
 
 void test_aumentoPrecision_mercenario(shared_ptr<Mercenario> mercenario, int aumento){
-    cout << "TEST AUMENTAR PRECISION - MERCENARIO" << endl;
+    cout << "TEST AUMENTAR PRECISIÓN - MERCENARIO" << endl;
     mercenario->aumentarPrecision(aumento);
     cout << "------------------------------" << endl;
 }
 
 void test_absorberEnergia_nigromante(shared_ptr<Nigromante> nigromante){
-    cout << "TEST ABSORBER ENERGIA - NIGROMANTE" << endl;
+    cout << "TEST ABSORBER ENERGÍA - NIGROMANTE" << endl;
     nigromante->absorberEnergia();
     cout << "------------------------------" << endl;
 }
 
 void test_usarComodinPaladin(shared_ptr<Paladin> paladin){
-    cout << "TEST USAR COMODIN - PALADIN" << endl;
+    cout << "TEST USAR COMODÍN - PALADÍN" << endl;
     paladin->usarComodin();
     cout << "------------------------------" << endl;
 }

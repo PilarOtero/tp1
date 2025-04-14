@@ -10,7 +10,7 @@ class Paladin: public Guerrero {
         //Getter
         int getComodines();
 
-        //Metodos
+        //Métodos
         void mostrarInfo() override;
         void usarComodin();
            

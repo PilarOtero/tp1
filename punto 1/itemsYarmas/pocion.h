@@ -12,7 +12,7 @@ class Pocion: public ItemMagico {
         //Getter
         string getColor();
 
-        //Metodos
+        //Métodos
         void mostrarInfo() override;
         void pocion_magica();
 

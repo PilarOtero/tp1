@@ -19,23 +19,26 @@ int Mago:: getVida() { return vida; }
 int Mago:: getFuerza() { return fuerza; }
 pair<shared_ptr<Util>, shared_ptr<Util>> Mago:: getArmas() { return armas; }
 
-//Metodos
+//MÉtodos
 void Mago:: usarPoder() {
     cout << nombre << " ha usado su poder: " << poder << endl;
 }
 
 void Mago:: morir() {
+    //Defino la fuerza y la vida en 0
     vida = 0;
     fuerza = 0;
     cout << nombre << " ha muerto." << endl;
 }
 
 void Mago:: revivir(int agregado_vida) {
+    //Se agrega vida al Mago
     vida += agregado_vida;
     cout << nombre << " ha revivido. VIDA (años) -> " << vida << endl;
 }
 
 void Mago:: evolucionar(int daño_agregado, int vida_agregada) {
+    //Evoluciono algunos aspectos del Mago
     nivel++;
     fuerza += daño_agregado;
     vida += vida_agregada;
@@ -43,6 +46,7 @@ void Mago:: evolucionar(int daño_agregado, int vida_agregada) {
 }
 
 void Mago:: involucionar(int daño_reducido, int vida_reducida){
+    //Reduzco el valor de algunos aspectos del Mago
     fuerza -= daño_reducido;
     vida -= vida_reducida;
     cout << nombre << " ha involucionado. NIVEL -> " << nivel << "\nVIDA-> " << vida << endl;
@@ -53,6 +57,7 @@ void Mago:: involucionar(int daño_reducido, int vida_reducida){
 }
 
 void Mago:: agregarVida(int vida_agregada) {
+    //Aumento la vida del Mago en las unidades pasadas por parÁmetro
     vida += vida_agregada;
     cout << "Al Mago " << nombre << "se le ha agregado vida. VIDA (años) -> " << vida << endl;
 }
@@ -66,7 +71,7 @@ Guerrero:: Guerrero(const string& nombre_guerrero, int nivel_guerrero, int vida_
     vida = vida_guerrero;
     fuerza = fuerza_guerrero;
     experiencia = experiencia_guerrero;
-    //armas = armas_guerrero;
+    armas = armas_guerrero;
     habilidad = habilidad_guerrero;
 }
 
@@ -79,12 +84,14 @@ string Guerrero:: getHabilidad() { return habilidad; }
 pair<shared_ptr<Util>, shared_ptr<Util>> Guerrero:: getArmas() { return armas; }
 
 void Guerrero:: morir(){
+    //Defino la fuerza y la vida en 0
     vida = 0;
     fuerza = 0;
     cout << "El Guerrero " << nombre << " ha muerto." << endl;
 }
 
 void Guerrero:: evolucionar(int daño_agregado, int vida_agregada){
+    //Evoluciono algunos aspectos del Guerrero
     nivel ++;
     vida += vida_agregada;
     fuerza += daño_agregado;
@@ -96,6 +103,7 @@ void Guerrero:: usarHabilidad(){
 }
 
 void Guerrero:: cambiarHabilitad(const string& nueva_habilidad){
+    //Actualizo el valor de la habilidad por el nuevo
     habilidad = nueva_habilidad;
     cout << "El Guerrero " << nombre << " ha cambiado su habilidad: " << habilidad << endl;
 }

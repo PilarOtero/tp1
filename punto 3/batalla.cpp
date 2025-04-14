@@ -13,22 +13,22 @@ bool generarEsGuerrero(){
 
 void displayPersonajes(){
     cout << "PERSONAJES DISPONIBLES ----" << endl;
-    cout << "PERSONAJES MAGICOS" << endl;
+    cout << "PERSONAJES MÁGICOS" << endl;
     cout << "1. Brujo" << endl;
     cout << "2. Conjurador" << endl;
     cout << "3. Hechicero" << endl;
     cout << "4. Nigromante" << endl;
     cout << "\nPERSONAJES GUERREROS" << endl;
     cout << "5. Gladiador" << endl;
-    cout << "6. Paladin" << endl;
+    cout << "6. Paladín" << endl;
     cout << "7. Caballero" << endl;
-    cout << "8. Barbaro" << endl;
+    cout << "8. Bárbaro" << endl;
     cout << "9. Mercenario" << endl;
     cout << "\n";
 }
 
 int elegirPersonaje(){
-    //Devuelvo la opcion elegida por consola para luego crear el Personaje
+    //Devuelvo la opción elegida por consola para luego crear el Personaje
     int opcion;
     while(true){
         displayPersonajes();
@@ -36,7 +36,7 @@ int elegirPersonaje(){
         cin >> opcion;
 
         if (opcion < 1 || opcion > 9){
-            cout << "Opcion invalida. Intente nuevamente." << endl;
+            cout << "Opcián invalida. Intente nuevamente." << endl;
             continue;
         }
     
@@ -46,10 +46,10 @@ int elegirPersonaje(){
 
 void displayArmas(){
     cout << "ARMAS DISPONIBLES ----" << endl;
-    cout << "ARMAS MAGICAS" << endl;
+    cout << "ARMAS MÁGICAS" << endl;
     cout << "1. Amuleto" << endl;
-    cout << "2. Baston" << endl;
-    cout << "3. Pocion" << endl;
+    cout << "2. Bastón" << endl;
+    cout << "3. Poción" << endl;
     cout << "4. Libro de Hechizos" << endl;
     cout << "\nARMAS DE COMBATE" << endl;
     cout << "5. Espada" << endl;
@@ -60,7 +60,7 @@ void displayArmas(){
 }
 
 shared_ptr<Util> elegirArma(){
-    //A partir de la opcion de Arma elegida (se corresponde con los valores de la clase Armas), utilizo la funcion realizada en el punto 2 para crearla
+    //A partir de la opción de Arma elegida (se corresponde con los valores de la clase Armas), utilizo la función realizada en el punto 2 para crearla
     int opcion;
     while(true){
         displayArmas();
@@ -68,7 +68,7 @@ shared_ptr<Util> elegirArma(){
         cin >> opcion;
 
         if (opcion < 1 || opcion > 9){
-            cout << "Opcion invalida. Intente nuevamente." << endl;
+            cout << "Opción inválida. Intente nuevamente." << endl;
             continue;
         }
 
@@ -77,16 +77,16 @@ shared_ptr<Util> elegirArma(){
 }
 
 void displayAtaque(){
-    cout << "Su opcion: (1) Golpe Fuerte, (2) Golpe Rapido, (3) Defensa y Golpe" << endl;
+    cout << "Su opción: (1) Golpe Fuerte, (2) Golpe Rápido, (3) Defensa y Golpe" << endl;
 }
 
 string toStringAtaque(Ataque ataque){
-    //Convierto la opcion de Ataque elegida a string para poder acceder en el main
+    //Convierto la opción de Ataque elegida a string para poder acceder en el main
     switch(ataque){
         case Ataque:: golpefuerte: return "Golpe Fuerte";
-        case Ataque:: golperapido: return "Golpe Rapido";
+        case Ataque:: golperapido: return "Golpe Rápido";
         case Ataque:: defensaygolpe: return "Defensa y Golpe";
-        default: return "Ataque no valido";
+        default: return "Ataque no válido";
     }
 }
 
@@ -99,7 +99,7 @@ Ataque elegirAtaque(){
         cin >> opcion;
 
         if (opcion < 1 || opcion > 3){
-            cout << "Opcion invalida. Intente nuevamente." << endl;
+            cout << "Opción invalida. Intente nuevamente." << endl;
             continue;
         }
         
@@ -151,19 +151,21 @@ void simularBatalla(shared_ptr<Personaje> jugador1, shared_ptr<Util> armaj1, sha
             cout << "El " << jugador1->getNombre() << " ataca con " << armaj1->getNombre() << " y hace 10 puntos de daño " <<endl;
             cout << "\n¡Has ganado el turno!" << endl;
             hp2 -= 10; 
+            cout << "Siguiente turno..." << endl;
         }
 
         else{
             cout << "El " << jugador2->getNombre() << " ataca con " << armaj2->getNombre() << " y hace 10 puntos de daño " <<endl;
             cout << "\n¡Has perdido el turno!" << endl;
             hp1 -=10;
+            cout << "Siguiente turno..." << endl;
         }
 
     ronda ++; 
     cout << "-------------------------" << endl; 
     }
 
-    //Si el HP de alguno de los jugadores llega a 0, se termina la batalla
+    //Si el HP de alguno de los jugadores llega a 0, se termina la partida
     cout << "-------- FIN DE LA BATALLA --------" << endl;
     if (hp2 <= 0){
         cout << "El " << jugador1->getNombre() << " ha salido victorioso" << endl;

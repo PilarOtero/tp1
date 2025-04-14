@@ -13,7 +13,7 @@ class Garrote: public ArmaCombate {
         //Getters
         bool getDestruyeArmas();
     
-        //Metodos
+        //Métodos
         void usar() override;
         void reparar(int daño_agregado, int duracion_agregada);
         void mostrarInfo() override;

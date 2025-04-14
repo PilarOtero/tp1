@@ -11,7 +11,7 @@ class Mercenario: public Guerrero {
         //Getters
         int getPrecision();
 
-        //Metodos
+        //Métodos
         void mostrarInfo() override;
         void usarPrecision();
         void aumentarPrecision(int aumento);  

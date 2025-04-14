@@ -9,7 +9,7 @@ vector<string> LibroDeHechizos:: getHechizos() { return hechizos; }
 void LibroDeHechizos:: mostrarInfo() {
     cout << "- Item -> LIBRO DE HECHIZOS " << endl;
     cout << "- Daño -> " << daño << endl;
-    cout << "- Duracion (minutos) -> " << duracion << endl;
+    cout << "- Duración (minutos) -> " << duracion << endl;
     cout << "- Nivel de uso -> " << nivel << endl;
     cout << "- Poder -> " << poder << endl;
 
@@ -27,8 +27,3 @@ void LibroDeHechizos:: mostrarInfo() {
 
     cout << "------------------------------" << endl;
 }
-
-
-
-
-

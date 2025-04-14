@@ -14,7 +14,7 @@ class Conjurador: public Mago {
         string getConjuroSecreto();
         bool getTieneConjuros();
         
-        //Metodos
+        //Métodos
         void mostrarInfo() override;
  
 };

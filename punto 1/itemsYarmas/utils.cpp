@@ -2,7 +2,7 @@
 
 using namespace std;
 
-//ITEMS MAGICOS
+//ITEMS MÁGICOS
 //Constructor
 ItemMagico:: ItemMagico(const string& nombre_item, const string& poder_item, int daño_item, int duracion_item, int nivel_de_uso_item, bool magiaActiva_item){
     nombre = nombre_item;
@@ -25,39 +25,38 @@ void ItemMagico:: usar() {
 } 
 
 void ItemMagico:: evolucionar(int daño_agregada, int duracion_agregada) {
-    cout << "Evolucionando el Libro de Hechizos ..." << endl;
+    //Mejoro el daño y la duración del Item
+    cout << "Evolucionando el item " << nombre << "..." << endl;
     daño += daño_agregada; 
     duracion += duracion_agregada; 
     cout << "NUEVOS VALORES: \n -> DAÑO: " << daño << "\n -> DURACIÓN: " << duracion << endl;
 }
 
 void ItemMagico:: involucionar(int daño_reducido, int duracion_reducida ){
-    cout << "El Libro ha sido dañado y ha perdido utilidad" << endl;
+    cout << "El Item " << nombre << " ha sido dañado y ha perdido utilidad" << endl;
     cout << "Involucionando..." << endl;
     
+    //Bajo el daño y la duración del Item
     daño -= daño_reducido;
     duracion -= duracion_reducida;   
     cout << "NUEVOS VALORES: \n -> DAÑO: " << daño << "\n -> DURACIÓN: " << duracion << endl;
     
+    //Si alguno de los valores es mejor o igual a 0, el Item ha sido destruido
     if (daño <= 0 || duracion <= 0){
-        cout << "El Libro ha sido destruido ya que se ha quedado sin magia!" << endl;
+        cout << "El Item " << nombre << " ha sido destruido ya que se ha quedado sin magia!" << endl;
         magiaActiva = false;
     }
 }
 
 void ItemMagico:: romper() {
+    //Actualizo estos valores a 0 para representar que el Item ha sido roto.
     daño = 0;
     duracion = 0;
     magiaActiva = false;
 
     cout << "El Item " << nombre<< " ha sido roto!" << endl;
     cout << "DAÑO -> " << daño <<  "\nDURACION -> " << duracion << endl;
-    if (magiaActiva == true) {
-        cout << "MAGIA ACTIVA " << endl;
-    }
-    else {
-        cout << "MAGIA INACTIVA " << endl;
-    }
+
 }
 
 //ARMAS DE COMBATE
@@ -78,6 +77,8 @@ float ArmaCombate:: getPeso() { return peso; }
 
 void ArmaCombate:: evolucionar(int daño_agregado, int duracion_agregada) {
     cout << "Evolucionando la Lanza ..." << endl;
+
+    //Mejoro el daño y la duración del Arma
     daño += daño_agregado;
     duracion += duracion_agregada;
     cout << "NUEVOS VALORES: \n -> DAÑO -> " << daño << "\n -> DURACIÓN (minutos) -> " << duracion << endl;
@@ -87,19 +88,14 @@ void ArmaCombate:: involucionar(int daño_reducido, int duracion_reducida){
     cout << "El Arma " << nombre << " ha sido dañada y ha perdido utilidad" << endl;
     cout << "Involucionando..." << endl;
     
+    //Bajo el daño y la duración del Arma
     daño -= daño_reducido;
     duracion -= duracion_reducida;
     
     cout << "NUEVOS VALORES: \n -> DAÑO -> " << daño << "\n -> DURACIÓN (minutos) -> " << duracion << endl;
     
+    //Si alguno de estos es menor o igual a 0, el Arma se ha roto
     if (daño <= 0 || duracion <= 0){
         cout << "El Arma " << nombre << " ha sido destruida" << endl;
     }
 } 
-
-
-
-
-
-
-

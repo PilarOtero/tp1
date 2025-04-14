@@ -10,10 +10,10 @@ class Hechicero: public Mago {
         //Constructor
         Hechicero(const string& nombre, int nivel, int vida, int fuerza, const string& poder, bool experiencia, pair<shared_ptr<Util>, shared_ptr<Util>> armas, int edad);  
 
-        //Getters
+        //Getter
         int getEdad();
         
-        //Metodos
+        //Método
         void mostrarInfo() override;
                 
 

@@ -29,7 +29,9 @@ void Espada:: usar() {
 //Metodo virtual puro heredado
 void Espada:: reparar(int daño_agregado, int duracion_agregada) {
     cout << "Reparando la Espada..." << endl;
+    //Actualizo el daño, la duración, y el filo y defino cortante como true
     daño += daño_agregado;
+    filo += 10;
     cortante = true;
     duracion += duracion_agregada;
     cout << "NUEVOS VALORES: \n -> DAÑO -> " << daño << "\n -> DURACION (minutos) -> " << duracion << endl;

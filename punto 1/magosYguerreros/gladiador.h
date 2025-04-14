@@ -16,7 +16,7 @@ class Gladiador: public Guerrero {
         bool getEscudo();
         int getVelocidad();
 
-        //Metodos
+        //Métodos
         void mostrarInfo() override;
         void usarEscudo();
 };

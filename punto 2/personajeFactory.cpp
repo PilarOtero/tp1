@@ -1,11 +1,12 @@
 #include "personajeFactory.h"
 
 shared_ptr<Personaje> PersonajeFactory:: crearPersonaje(Personajes personaje){
-    //Para crear un personaje sin armas, utilizo la funcion de crearPersonajeArmado y paso, como armas, nullptr
+    //Para crear un personaje sin armas, utilizo la función de crearPersonajeArmado y paso, como armas, nullptr
     return PersonajeFactory:: crearPersonajeArmado(personaje, {nullptr, nullptr});
 }
 
 shared_ptr<Personaje> PersonajeFactory :: crearPersonajeArmado(Personajes personaje, pair<shared_ptr<Util>, shared_ptr<Util>> armas){
+    //Mediante un switch creo los diferentes punteros a personajes posibles
     switch (personaje) {
         case Personajes:: brujo:
             return make_shared<Brujo>("Brujo", 5, 100, 20, "Fuego", true, armas, true,"Fuego");
@@ -13,8 +14,8 @@ shared_ptr<Personaje> PersonajeFactory :: crearPersonajeArmado(Personajes person
         case Personajes:: conjurador:
             return make_shared<Conjurador>("Conjurador", 6, 100, 25, "Agua", false, armas, "Alzamiento de los Muertos");
         
-            case Personajes:: hechicero:
-            return make_shared<Hechicero>("Hechicero", 7, 100, 30, "Rayo", true, armas, 80);
+        case Personajes:: hechicero:
+        return make_shared<Hechicero>("Hechicero", 7, 100, 30, "Rayo", true, armas, 80);
 
         case Personajes:: nigromante:
             return make_shared<Nigromante>("Nigromante", 8, 100, 35, "Oscuridad", false, armas, 70, 100);
@@ -42,12 +43,13 @@ shared_ptr<Personaje> PersonajeFactory :: crearPersonajeArmado(Personajes person
 }
 
 shared_ptr<Util> PersonajeFactory:: crearArma(Armas arma){
+        //Mediante un switch creo los diferentes punteros a las armas posibles
     switch(arma){
         case Armas:: amuleto:
             return make_shared<Amuleto>("Amuleto Magico", "Quien lo posea, tendra suerte en todos los enfrentamientos", 10, 3, 20, true, true);
         
         case Armas:: baston:
-            return make_shared<Baston>("Baston Magico", "Ilumina solamente la vista de quien lo posee", 1, 10, 15, true);
+            return make_shared<Baston>("Baston Magico", "Ilumina solamente la vista de quien lo posee", 1, 10, 15, true, true);
         
         case Armas:: pocion:
             return make_shared<Pocion>("Pocion Magica", "Quien la tome, sanara de cualquier mal", 5, 5, 50, true, "violeta");

@@ -11,7 +11,7 @@ class LibroDeHechizos: public ItemMagico {
         //Constructor
         LibroDeHechizos(const string& nombre, const string& poder, int daño, int nivel_de_uso, int duracion, bool magiaActiva, vector<string> hechizos);
         
-        //Getters
+        //Getter
         vector<string> getHechizos();
 
         //Metodos

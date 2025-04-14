@@ -28,6 +28,7 @@ void Caballero:: mostrarInfo() {
 }
 
 void Caballero:: usarFuerzaSecreta() {
+    //En caso de que el Caballero use su fuerza secreta, aumentará su fuerza en 100 
     fuerza += 100;
     cout << nombre << " ha usado su arma secreta. FUERZA -> " << fuerza << endl;
 }

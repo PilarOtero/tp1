@@ -4,12 +4,14 @@
 
 using namespace std;
 
+//INTERFAZ
 class Util {
     public: 
         //Getters
         virtual string getNombre() = 0;
         virtual int getDaño() = 0;
         virtual int getDuracion() = 0;
+        
         //Metodos
         virtual void usar() = 0;
         virtual void mostrarInfo() = 0;
@@ -20,6 +22,7 @@ class Util {
         virtual ~Util() = default;
 };
 
+//CLASE ABSTRACTA DERIVADA DE LA INTERFAZ
 class ItemMagico: public Util {
     protected:
         string nombre;
@@ -40,7 +43,7 @@ class ItemMagico: public Util {
         virtual string getPoder();
         virtual bool getMagiaActiva();
 
-        //Metodos
+        //Métodos
         virtual void usar() override;
         virtual void mostrarInfo() override = 0;
         virtual void evolucionar(int daño_agregado, int duracion_agregada) override;
@@ -48,7 +51,7 @@ class ItemMagico: public Util {
         virtual void romper();
 };
 
-
+//CLASE ABSTRACTA DERIVADA DE LA INTERFAZ
 class ArmaCombate: public Util{
     protected:
         string nombre;
@@ -66,7 +69,7 @@ class ArmaCombate: public Util{
         virtual int getDuracion() override;
         virtual float getPeso();
     
-        //Metodos
+        //Métodos
         virtual void usar() override = 0;
         virtual void mostrarInfo() override = 0;
         virtual void evolucionar(int daño_agregado, int duracion_agregada) override;

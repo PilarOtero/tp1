@@ -12,7 +12,7 @@ class Caballero: public Guerrero {
         int getnivelDeValentia();
         string getTipoDeCaballero();
 
-        //Metodos
+        //Métodos
         void mostrarInfo() override;
         void usarFuerzaSecreta();
 };

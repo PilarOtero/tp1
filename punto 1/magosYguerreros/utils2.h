@@ -8,6 +8,7 @@
 
 using namespace std;
 
+//INTERFAZ
 class Personaje {
     public:
         //Getters
@@ -15,18 +16,19 @@ class Personaje {
         virtual int getNivel() = 0;
         virtual int getVida() = 0;
         virtual int getFuerza() = 0;
+        virtual pair<shared_ptr<Util>, shared_ptr<Util>> getArmas() = 0;
 
         //Metodos
         virtual void morir() = 0;
         virtual void evolucionar(int daño_agregado, int vida_agregada) = 0;
         virtual void mostrarInfo() = 0;
-        virtual pair<shared_ptr<Util>, shared_ptr<Util>> getArmas() = 0;
 
         //Destructor
         virtual ~Personaje() = default;
 
 };
 
+//CLASE ABSTRACTA DERIVADA DE LA INTERFAZ
 class Mago: public Personaje {
     protected:
         string nombre;
@@ -59,7 +61,7 @@ class Mago: public Personaje {
         virtual void involucionar(int daño_reducido, int vida_reducida);
 };
 
-
+//CLASE ABSTRACTA DERIVADA DE LA INTERFAZ
 class Guerrero: public Personaje {
     protected:
         string nombre;
@@ -82,7 +84,7 @@ class Guerrero: public Personaje {
         virtual string getHabilidad();  
         virtual pair<shared_ptr<Util>, shared_ptr<Util>> getArmas() override;
 
-        //Metodos
+        //Métodos
         virtual void morir() override;
         virtual void evolucionar(int daño_agregado, int vida_agregada) override;
         virtual void mostrarInfo() override = 0;

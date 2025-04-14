@@ -4,7 +4,7 @@
 
 
 int main(){
-    //Inicializo la "semilla" con la hora actual -> permite que se generen diferentes numeros a partir de una semilla (que cambia a cada segundo)
+    //Inicializo la "semilla" con la hora actual -> permite que se generen diferentes números
     srand(time(0));
 
     //RANDOM -> Cantidad de Personajes
@@ -19,8 +19,9 @@ int main(){
     vector<shared_ptr<Personaje>> magos;
     vector<shared_ptr<Personaje>> guerreros;
 
-    cout << "Creando..." << endl;
     cout << "------- ARMAS PERSONAJES -------" << endl;
+    cout << "Creando..." << endl;
+    
     //Guerreros
     generadorPersonajes(cantidad_guerreros, true, guerreros);
     mostrarArmasPersonajes(guerreros);

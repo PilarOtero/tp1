@@ -15,6 +15,6 @@ class Brujo: public Mago {
         bool getVeElFuturo();
         string getTipoDeMagia();
 
-        //Metodos
+        //Métodos
         void mostrarInfo() override;
 };

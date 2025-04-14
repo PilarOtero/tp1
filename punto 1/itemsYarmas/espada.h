@@ -14,7 +14,7 @@ class Espada: public ArmaCombate {
         int getFilo();
         bool getCortante();
     
-        //Metodos
+        //Métodos
         void usar() override;
         void mostrarInfo() override;
         void reparar(int daño_agregado, int duracion_agregada) override;

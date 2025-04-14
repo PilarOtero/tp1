@@ -7,7 +7,7 @@ Amuleto::Amuleto(const string& nombre, const string& poder, int daño, int nivel
 void Amuleto:: mostrarInfo() {
     cout << "- Item -> AMULETO " << endl;
     cout << "- Daño -> " << daño << endl;
-    cout << "- Duracion (minutos) -> " << duracion << endl;
+    cout << "- Duración (minutos) -> " << duracion << endl;
     cout << "- Nivel de uso -> " << nivel << endl;
     cout << "- Poder -> " << poder << endl;
 

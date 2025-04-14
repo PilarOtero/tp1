@@ -7,7 +7,7 @@ Baston:: Baston(const string& nombre, const string& poder, int daño, int nivel_
 void Baston:: mostrarInfo() {
     cout << "- Item -> BASTON " << endl;
     cout << "- Daño -> " << daño << endl;
-    cout << "- Duracion (minutos) -> " << duracion << endl;
+    cout << "- Duración (minutos) -> " << duracion << endl;
     cout << "- Nivel de uso -> " << nivel << endl;
     cout << "- Poder -> " << poder << endl;
 
@@ -23,12 +23,12 @@ void Baston:: mostrarInfo() {
 
 void Baston:: mostrarSuerte(){
     if (traeSuerte == true) {
-        cout << "Tuviste Suerte. El Baston ha aumentado su duracion" << endl;
+        cout << "Tuviste Suerte. El Bastón ha aumentado su duración" << endl;
         duracion += 10;
-        cout << "DURACION ->" << duracion << endl;
+        cout << "DURACIÓN ->" << duracion << endl;
     }
     else {
-        cout << "Lamentablemente, el Baston no te trajo suerte..." << endl;
+        cout << "Lamentablemente, el Bastón no te trajo suerte..." << endl;
     }
 
 }

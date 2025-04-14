@@ -14,7 +14,7 @@ void Mercenario:: mostrarInfo() {
     cout << "Vida -> " << vida << endl;
     cout << "Fuerza -> " << fuerza << endl;
     cout << "Habilidad -> " << habilidad << endl;
-    cout << "Precision -> " << precision << endl;
+    cout << "Precisión -> " << precision << endl;
 
     if (experiencia == true) {
         cout << "El Mercenario tiene experiencia" << endl;
@@ -26,10 +26,11 @@ void Mercenario:: mostrarInfo() {
 }
 
 void Mercenario:: usarPrecision() {
-    cout << nombre << " ha usado su precision. PRECISION -> " << precision << endl;
+    cout << nombre << " ha usado su precisión. PRECISIÓN -> " << precision << endl;
 }
 
 void Mercenario:: aumentarPrecision(int aumento) {
+    //En caso que se quiera aumentar la precision del Mercenario, aumenta lo ingresdo por parámetro
     precision += aumento;
     cout << nombre << " ha aumentado su precision. NUEVA PRECISION -> " << precision << endl;
 }

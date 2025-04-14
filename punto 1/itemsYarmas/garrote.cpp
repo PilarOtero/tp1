@@ -32,6 +32,7 @@ void Garrote:: usar() {
 
 void Garrote:: reparar(int daño_agregado, int duracion_agregada) {
     cout << "Reparando el Garrote...\n..." << endl;
+    //Actualizo el daño y la duracion y defino destruyeArmas como true
     daño += daño_agregado;
     duracion += duracion_agregada;
     destruyeArmas = true;

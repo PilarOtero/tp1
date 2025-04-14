@@ -9,12 +9,11 @@ class Nigromante: public Mago {
         //Constructor
         Nigromante(const string& nombre, int nivel, int vida, int fuerza, const string& poder, bool experiencia, pair<shared_ptr<Util>, shared_ptr<Util>> armas, int absorcionVida, int energiaMuerte);
     
-        //Getters
-        int getAbsorcionDeVida();
+        //Getter
         int getEnergiaMuerte();
 
-        //Metodos
+        //Métodos
         void mostrarInfo() override;
-        //Metodo para absorber energia de la Muerte (capacidad de los nigromantes)
+        //Método para absorber energía de la Muerte (capacidad de los nigromantes)
         void absorberEnergia();
 };

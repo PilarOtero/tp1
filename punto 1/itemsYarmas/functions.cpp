@@ -11,7 +11,7 @@
 
 
 void handle_mostrar_items(shared_ptr<Baston> baston, shared_ptr<LibroDeHechizos> libro, shared_ptr<Pocion> pocion, shared_ptr<Amuleto> amuleto) {
-    cout << "SECCION ITEMS MAGICOS" << endl;
+    cout << "SECCION ITEMS MÁGICOS" << endl;
     baston->mostrarInfo();
     libro->mostrarInfo();
     pocion->mostrarInfo();
@@ -19,7 +19,7 @@ void handle_mostrar_items(shared_ptr<Baston> baston, shared_ptr<LibroDeHechizos>
 }
 
 void handle_mostrar_armas(shared_ptr<HachaSimple> hacha_simple, shared_ptr<HachaDoble> hacha_doble, shared_ptr<Lanza> lanza, shared_ptr<Espada> espada, shared_ptr<Garrote> garrote) {
-    cout << "------------------------------\nSECCION ARMAS DE COMBATE" << endl;
+    cout << "------------------------------\nSECCIÓN ARMAS DE COMBATE" << endl;
     hacha_simple->mostrarInfo();
     hacha_doble->mostrarInfo();
     lanza->mostrarInfo();    
@@ -29,7 +29,7 @@ void handle_mostrar_armas(shared_ptr<HachaSimple> hacha_simple, shared_ptr<Hacha
 }
 
 void test_evolucionar_item(shared_ptr<Baston> baston){
-    cout << "TEST DE EVOLUCION - ITEM MAGICO" << endl;
+    cout << "TEST DE EVOLUCIÓN - ITEM MÁGICO" << endl;
     
     baston->usar();
     baston->evolucionar(200,15);
@@ -37,7 +37,7 @@ void test_evolucionar_item(shared_ptr<Baston> baston){
 }
 
 void test_involucionar_item(shared_ptr<LibroDeHechizos> libro){
-    cout << "TEST DE INVOLUCION - ITEM MAGICO" << endl;
+    cout << "TEST DE INVOLUCIÓN - ITEM MÁGICO" << endl;
     
     libro->usar();
     libro->involucionar(1500,1000);
@@ -45,7 +45,7 @@ void test_involucionar_item(shared_ptr<LibroDeHechizos> libro){
 }
 
 void test_romper_item(shared_ptr<Pocion> pocion){
-    cout << "TEST ROMPER - ITEM MAGICO" << endl;
+    cout << "TEST ROMPER - ITEM MÁGICO" << endl;
     
     pocion->usar();
     pocion->romper();
@@ -53,19 +53,19 @@ void test_romper_item(shared_ptr<Pocion> pocion){
 }
 
 void test_ver_ma_pocion(shared_ptr<Pocion> pocion){
-    cout << "TEST VER SI ES MAGICO ACTIVO - ITEM MAGICO" << endl;
+    cout << "TEST VER SI ES MÁGICO ACTIVO - ITEM MÁGICO" << endl;
     
     if (pocion->getMagiaActiva() == true) {
-        cout << "->MAGIA ACTIVA " << endl;
+        cout << "-> MAGIA ACTIVA " << endl;
     }
     else {
-        cout << "->MAGIA INACTIVA " << endl;
+        cout << "-> MAGIA INACTIVA " << endl;
     }
     cout << "------------------------------" << endl;
 }
 
 void test_evolucionar_arma(shared_ptr<HachaSimple> hacha_simple){
-    cout << "TEST DE EVOLUCION - ARMA" << endl; 
+    cout << "TEST DE EVOLUCIÓN - ARMA" << endl; 
     
     hacha_simple->usar();
     hacha_simple->evolucionar(1400,153);
@@ -81,7 +81,7 @@ void test_ver_peso_arma(shared_ptr<Espada> espada){
 }
 
 void test_involucionar_garrote(shared_ptr<Garrote> garrote){
-    cout << "TEST DE INVOLUCION - ARMA" << endl;
+    cout << "TEST DE INVOLUCIÓN - ARMA" << endl;
     
     garrote->usar();
     garrote->involucionar(150,45);
@@ -104,7 +104,7 @@ void test_espada_cortante(shared_ptr<Espada> espada){
 }
 
 void test_pocion_magica(shared_ptr<Pocion> pocion){
-    cout << "TEST POCION VIOLETA" << endl;
+    cout << "TEST POCIÓN VIOLETA" << endl;
     pocion->usar();
     pocion->pocion_magica();
     cout << "------------------------------" << endl;

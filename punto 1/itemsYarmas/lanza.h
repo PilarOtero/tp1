@@ -13,7 +13,7 @@ class Lanza: public ArmaCombate {
         //Getter
         int getPrecision();
     
-        //Metodos
+        //Métodos
         void usar() override;
         void reparar(int daño_agregado, int duracion_agregada) override;
         void mostrarInfo() override;

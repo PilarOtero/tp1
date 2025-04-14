@@ -8,7 +8,7 @@ int Paladin:: getComodines() { return comodines; }
 
 //Metodos
 void Paladin:: mostrarInfo() {
-    cout << "GUERRERO - PALADIN" << endl;
+    cout << "GUERRERO - PALADÍN" << endl;
     cout << "Nombre -> " << nombre << endl;
     cout << "Nivel -> " << nivel << endl;
     cout << "Vida -> " << vida << endl;
@@ -17,16 +17,18 @@ void Paladin:: mostrarInfo() {
     cout << "Comodines -> " << comodines << endl;
 
     if (experiencia == true) {
-        cout << "El Paladin tiene experiencia" << endl;
+        cout << "El Paladín tiene experiencia" << endl;
     }
     else {
-        cout << "El Paladin es inexperto" << endl;
+        cout << "El Paladín es inexperto" << endl;
     }
     cout << "------------------------------" << endl;
 }
 
 void Paladin:: usarComodin() {
+    //Al usar un comodín, aumenta la fuerza del Paladín
     fuerza += 100;
+    //Resto 1 unidad de la cantidad total de comodines ya que se uso 1
     comodines --;
 
     cout << nombre << " ha usado un comodin. COMODINES RESTANTES -> " << comodines << endl;

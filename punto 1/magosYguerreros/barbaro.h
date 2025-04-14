@@ -14,7 +14,7 @@ class Barbaro: public Guerrero {
         int getVelocidad();
         bool getFurioso();
 
-        //Metodos
+        //Métodos
         void mostrarInfo() override;
         void estaFurioso(int furia);
 };

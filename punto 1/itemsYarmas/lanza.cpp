@@ -24,6 +24,7 @@ void Lanza:: usar() {
 }
 void Lanza:: reparar(int daño_agregado, int duracion_agregada) {
     cout << "Reparando la Lanza...\n..." << endl;
+    //Actualizo el daño, la duración y mejoro la precisión en 100 unidades
     daño += daño_agregado;
     duracion += duracion_agregada;
     precision = 100; 
