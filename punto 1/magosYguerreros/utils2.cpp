@@ -2,14 +2,14 @@
 
 //CLASE MAGO
 //Constructor
-Mago:: Mago(const string& nombre_mago, int nivel_mago, int vida_mago, int fuerza_mago, const string& poder_mago, bool experiencia_mago, pair<shared_ptr<Util>, shared_ptr<Util>> armas_mago){
+Mago:: Mago(const string& nombre_mago, int nivel_mago, int vida_mago, int fuerza_mago, const string& poder_mago, bool experiencia_mago, pair<unique_ptr<Util>, unique_ptr<Util>> armas_mago){
     nombre = nombre_mago; 
     nivel = nivel_mago;
     vida = vida_mago; 
     fuerza = fuerza_mago;
     poder = poder_mago;
     experiencia = experiencia_mago;
-    armas = armas_mago;
+    armas = move(armas_mago);
 }
 
 //Getters
@@ -17,9 +17,9 @@ string Mago:: getNombre() { return nombre; }
 int Mago:: getNivel() { return nivel; }
 int Mago:: getVida() { return vida; }
 int Mago:: getFuerza() { return fuerza; }
-pair<shared_ptr<Util>, shared_ptr<Util>> Mago:: getArmas() { return armas; }
+const pair<unique_ptr<Util>, unique_ptr<Util>>& Mago:: getArmas() const { return armas; }
 
-//MÉtodos
+//Metodos
 void Mago:: usarPoder() {
     cout << nombre << " ha usado su poder: " << poder << endl;
 }
@@ -65,13 +65,13 @@ void Mago:: agregarVida(int vida_agregada) {
 
 //CLASE GUERRERO
 //Constructor
-Guerrero:: Guerrero(const string& nombre_guerrero, int nivel_guerrero, int vida_guerrero, int fuerza_guerrero, bool experiencia_guerrero, pair<shared_ptr<Util>, shared_ptr<Util>> armas_guerrero, const string& habilidad_guerrero){
+Guerrero:: Guerrero(const string& nombre_guerrero, int nivel_guerrero, int vida_guerrero, int fuerza_guerrero, bool experiencia_guerrero, pair<unique_ptr<Util>, unique_ptr<Util>> armas_guerrero, const string& habilidad_guerrero){
     nombre = nombre_guerrero;
     nivel = nivel_guerrero;
     vida = vida_guerrero;
     fuerza = fuerza_guerrero;
     experiencia = experiencia_guerrero;
-    armas = armas_guerrero;
+    armas = move(armas_guerrero);
     habilidad = habilidad_guerrero;
 }
 
@@ -81,7 +81,7 @@ int Guerrero:: getNivel() { return nivel; }
 int Guerrero:: getVida() { return vida; }
 int Guerrero:: getFuerza() { return fuerza; }
 string Guerrero:: getHabilidad() { return habilidad; }
-pair<shared_ptr<Util>, shared_ptr<Util>> Guerrero:: getArmas() { return armas; }
+const pair<unique_ptr<Util>, unique_ptr<Util>>& Guerrero:: getArmas() const { return armas; }
 
 void Guerrero:: morir(){
     //Defino la fuerza y la vida en 0

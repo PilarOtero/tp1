@@ -1,7 +1,7 @@
 #include "gladiador.h"
 
 //Constructor
-Gladiador:: Gladiador(const string& nombre_gladiador, int nivel_gladiador, int vida_gladiador, int fuerza_gladiador, bool experiencia_gladiador, pair<shared_ptr<Util>, shared_ptr<Util>> armas_gladiador, const string& habilidad_gladiador, int honor_gladiador, bool escudo_gladiador, int velocidad_gladiador): Guerrero(nombre_gladiador, nivel_gladiador, vida_gladiador, fuerza_gladiador, experiencia_gladiador, armas_gladiador, habilidad_gladiador), honor(honor_gladiador), escudo(escudo_gladiador), velocidad(velocidad_gladiador) {}
+Gladiador:: Gladiador(const string& nombre_gladiador, int nivel_gladiador, int vida_gladiador, int fuerza_gladiador, bool experiencia_gladiador, pair<unique_ptr<Util>, unique_ptr<Util>> armas_gladiador, const string& habilidad_gladiador, int honor_gladiador, bool escudo_gladiador, int velocidad_gladiador): Guerrero(nombre_gladiador, nivel_gladiador, vida_gladiador, fuerza_gladiador, experiencia_gladiador, move(armas_gladiador), habilidad_gladiador), honor(honor_gladiador), escudo(escudo_gladiador), velocidad(velocidad_gladiador) {}
 
 //Getters
 int Gladiador:: getHonor() { return honor; }

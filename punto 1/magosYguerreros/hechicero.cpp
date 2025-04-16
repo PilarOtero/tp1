@@ -1,7 +1,7 @@
 #include "hechicero.h"
 
 //Constructor
-Hechicero:: Hechicero(const string& nombre_hechicero, int nivel_hechicero, int vida_hechicero, int fuerza_hechicero, const string& poder_hechicero, bool experiencia_hechicero, pair<shared_ptr<Util>, shared_ptr<Util>> armas_hechicero, int edad_hechicero) : Mago(nombre_hechicero, nivel_hechicero, vida_hechicero, fuerza_hechicero, poder_hechicero, experiencia_hechicero, armas_hechicero), edad(edad_hechicero) {}
+Hechicero:: Hechicero(const string& nombre_hechicero, int nivel_hechicero, int vida_hechicero, int fuerza_hechicero, const string& poder_hechicero, bool experiencia_hechicero, pair<unique_ptr<Util>, unique_ptr<Util>> armas_hechicero, int edad_hechicero) : Mago(nombre_hechicero, nivel_hechicero, vida_hechicero, fuerza_hechicero, poder_hechicero, experiencia_hechicero, move(armas_hechicero)), edad(edad_hechicero) {}
 
 //Getter
 int Hechicero:: getEdad() { return edad; }

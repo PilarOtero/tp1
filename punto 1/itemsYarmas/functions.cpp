@@ -9,26 +9,22 @@
 #include "garrote.h"
 #include "functions.h"
 
+//Utilizo & porque si no lo hago, estaria pasando por valor (pero unique_ptr no se puede copiar), por lo que paso los parametros por referencia
 
-void handle_mostrar_items(shared_ptr<Baston> baston, shared_ptr<LibroDeHechizos> libro, shared_ptr<Pocion> pocion, shared_ptr<Amuleto> amuleto) {
+void handle_mostrar_items(unique_ptr<Baston>& baston, unique_ptr<Pocion>& pocion) {
     cout << "SECCION ITEMS MÁGICOS" << endl;
     baston->mostrarInfo();
-    libro->mostrarInfo();
     pocion->mostrarInfo();
-    amuleto->mostrarInfo();
 }
 
-void handle_mostrar_armas(shared_ptr<HachaSimple> hacha_simple, shared_ptr<HachaDoble> hacha_doble, shared_ptr<Lanza> lanza, shared_ptr<Espada> espada, shared_ptr<Garrote> garrote) {
-    cout << "------------------------------\nSECCIÓN ARMAS DE COMBATE" << endl;
-    hacha_simple->mostrarInfo();
-    hacha_doble->mostrarInfo();
-    lanza->mostrarInfo();    
+void handle_mostrar_armas(unique_ptr<Espada>& espada, unique_ptr<Garrote>& garrote) {
+    cout << "------------------------------\nSECCIÓN ARMAS DE COMBATE" << endl;   
     espada->mostrarInfo();
     garrote->mostrarInfo();
 
 }
 
-void test_evolucionar_item(shared_ptr<Baston> baston){
+void test_evolucionar_item(unique_ptr<Baston>& baston){
     cout << "TEST DE EVOLUCIÓN - ITEM MÁGICO" << endl;
     
     baston->usar();
@@ -36,15 +32,7 @@ void test_evolucionar_item(shared_ptr<Baston> baston){
     cout << "------------------------------" << endl;
 }
 
-void test_involucionar_item(shared_ptr<LibroDeHechizos> libro){
-    cout << "TEST DE INVOLUCIÓN - ITEM MÁGICO" << endl;
-    
-    libro->usar();
-    libro->involucionar(1500,1000);
-    cout << "------------------------------" << endl;
-}
-
-void test_romper_item(shared_ptr<Pocion> pocion){
+void test_romper_item(unique_ptr<Pocion>& pocion){
     cout << "TEST ROMPER - ITEM MÁGICO" << endl;
     
     pocion->usar();
@@ -52,27 +40,7 @@ void test_romper_item(shared_ptr<Pocion> pocion){
     cout << "------------------------------" << endl;
 }
 
-void test_ver_ma_pocion(shared_ptr<Pocion> pocion){
-    cout << "TEST VER SI ES MÁGICO ACTIVO - ITEM MÁGICO" << endl;
-    
-    if (pocion->getMagiaActiva() == true) {
-        cout << "-> MAGIA ACTIVA " << endl;
-    }
-    else {
-        cout << "-> MAGIA INACTIVA " << endl;
-    }
-    cout << "------------------------------" << endl;
-}
-
-void test_evolucionar_arma(shared_ptr<HachaSimple> hacha_simple){
-    cout << "TEST DE EVOLUCIÓN - ARMA" << endl; 
-    
-    hacha_simple->usar();
-    hacha_simple->evolucionar(1400,153);
-    cout << "------------------------------" << endl;
-}
-
-void test_ver_peso_arma(shared_ptr<Espada> espada){
+void test_ver_peso_arma(unique_ptr<Espada>& espada){
     cout << "TEST DE PESO - ARMA" << endl;
     
     espada->usar();
@@ -80,38 +48,11 @@ void test_ver_peso_arma(shared_ptr<Espada> espada){
     cout << "------------------------------" << endl;
 }
 
-void test_involucionar_garrote(shared_ptr<Garrote> garrote){
-    cout << "TEST DE INVOLUCIÓN - ARMA" << endl;
-    
-    garrote->usar();
-    garrote->involucionar(150,45);
-    cout << "------------------------------" << endl;
-}
-
-void test_reparar_garrote(shared_ptr<Garrote> garrote){
+void test_reparar_garrote(unique_ptr<Garrote>& garrote){
     cout << "TEST DE REPARO - ARMA" << endl;
     garrote->usar();
     garrote->reparar(20, 15); 
     cout << "------------------------------" << endl;
 }
 
-void test_espada_cortante(shared_ptr<Espada> espada){
-    cout << "TEST DE ESPADA CORTANTE" << endl;
-    espada->usar();
-    espada->desafilar();
-    espada->reparar(20, 15);
-    cout << "------------------------------" << endl;
-}
 
-void test_pocion_magica(shared_ptr<Pocion> pocion){
-    cout << "TEST POCIÓN VIOLETA" << endl;
-    pocion->usar();
-    pocion->pocion_magica();
-    cout << "------------------------------" << endl;
-}
-
-void test_filo_espada(shared_ptr<Espada> espada){
-    cout << "TEST FILO - ESPADA" << endl;
-    cout << "Filo de la espada -> " <<espada->getFilo() << endl;
-    cout << "------------------------------" << endl;
-}

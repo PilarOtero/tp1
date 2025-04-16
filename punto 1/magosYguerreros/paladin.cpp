@@ -1,7 +1,7 @@
 #include "paladin.h"
 
 //Constructor
-Paladin:: Paladin(const string& nombre_paladin, int nivel_paladin, int vida_paladin, int fuerza_paladin, bool experiencia_paladin, pair<shared_ptr<Util>, shared_ptr<Util>> armas_paladin, const string& habilidad_paladin, int comodines_paladin): Guerrero(nombre_paladin, nivel_paladin, vida_paladin, fuerza_paladin, experiencia_paladin, armas_paladin, habilidad_paladin), comodines(comodines_paladin) {}
+Paladin:: Paladin(const string& nombre_paladin, int nivel_paladin, int vida_paladin, int fuerza_paladin, bool experiencia_paladin, pair<unique_ptr<Util>, unique_ptr<Util>> armas_paladin, const string& habilidad_paladin, int comodines_paladin): Guerrero(nombre_paladin, nivel_paladin, vida_paladin, fuerza_paladin, experiencia_paladin, move(armas_paladin), habilidad_paladin), comodines(comodines_paladin) {}
 
 //Getters
 int Paladin:: getComodines() { return comodines; }

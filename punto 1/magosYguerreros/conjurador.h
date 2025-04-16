@@ -8,7 +8,7 @@ class Conjurador: public Mago {
         string conjuroSecreto;
     public:
         //Constructor
-        Conjurador(const string& nombre, int nivel, int vida, int fuerza, const string& poder, bool experiencia, pair<shared_ptr<Util>, shared_ptr<Util>> armas, const string& conjuroSecreto);
+        Conjurador(const string& nombre, int nivel, int vida, int fuerza, const string& poder, bool experiencia, pair<unique_ptr<Util>, unique_ptr<Util>> armas, const string& conjuroSecreto);
         
         //Getters
         string getConjuroSecreto();

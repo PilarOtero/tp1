@@ -6,7 +6,7 @@ class Mercenario: public Guerrero {
 
     public:
         //Constructor
-        Mercenario(const string& nombre, int nivel, int vida, int fuerza, bool experiencia, pair<shared_ptr<Util>, shared_ptr<Util>> armas, const string& habilidad, int precision);
+        Mercenario(const string& nombre, int nivel, int vida, int fuerza, bool experiencia, pair<unique_ptr<Util>, unique_ptr<Util>> armas, const string& habilidad, int precision);
 
         //Getters
         int getPrecision();

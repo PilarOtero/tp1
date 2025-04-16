@@ -1,7 +1,7 @@
 #include "nigromante.h"
 
 //Constructor
-Nigromante:: Nigromante(const string& nombre_nigromante, int nivel_nigromante, int vida_nigromante, int fuerza_nigromante, const string& poder_nigromante, bool experiencia_nigromante, pair<shared_ptr<Util>, shared_ptr<Util>> armas_nigromante, int absorcionVida_nigromante, int energiaMuerte_nigromante): Mago(nombre_nigromante,nivel_nigromante, vida_nigromante, fuerza_nigromante, poder_nigromante, experiencia_nigromante, armas_nigromante),absorcionDeVida(absorcionVida_nigromante),energiaMuerte(energiaMuerte_nigromante){}
+Nigromante:: Nigromante(const string& nombre_nigromante, int nivel_nigromante, int vida_nigromante, int fuerza_nigromante, const string& poder_nigromante, bool experiencia_nigromante, pair<unique_ptr<Util>, unique_ptr<Util>> armas_nigromante, int absorcionVida_nigromante, int energiaMuerte_nigromante): Mago(nombre_nigromante,nivel_nigromante, vida_nigromante, fuerza_nigromante, poder_nigromante, experiencia_nigromante, move(armas_nigromante)),absorcionDeVida(absorcionVida_nigromante),energiaMuerte(energiaMuerte_nigromante){}
 
 //Getter
 int Nigromante:: getEnergiaMuerte() { return energiaMuerte; }

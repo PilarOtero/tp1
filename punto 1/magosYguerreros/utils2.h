@@ -16,7 +16,7 @@ class Personaje {
         virtual int getNivel() = 0;
         virtual int getVida() = 0;
         virtual int getFuerza() = 0;
-        virtual pair<shared_ptr<Util>, shared_ptr<Util>> getArmas() = 0;
+        virtual const pair<unique_ptr<Util>, unique_ptr<Util>>& getArmas() const = 0;
 
         //Metodos
         virtual void morir() = 0;
@@ -36,19 +36,19 @@ class Mago: public Personaje {
         int vida;
         int fuerza;
         bool experiencia;
-        pair<shared_ptr<Util>, shared_ptr<Util>> armas;
+        pair<unique_ptr<Util>, unique_ptr<Util>> armas;
         string poder;
     
     public:
         //Constructor
-        Mago(const string& nombre, int nivel, int vida, int fuerza, const string& poder, bool experiencia, pair<shared_ptr<Util>, shared_ptr<Util>> armas);
+        Mago(const string& nombre, int nivel, int vida, int fuerza, const string& poder, bool experiencia, pair<unique_ptr<Util>, unique_ptr<Util>> armas);
         
         //Getters
         virtual string getNombre() override;
         virtual int getNivel() override;
         virtual int getVida() override;
         virtual int getFuerza() override;
-        virtual pair<shared_ptr<Util>, shared_ptr<Util>> getArmas() override;
+        virtual const pair<unique_ptr<Util>, unique_ptr<Util>>& getArmas() const override;
 
         //Metodos
         virtual void morir() override;
@@ -69,12 +69,12 @@ class Guerrero: public Personaje {
         int vida;
         int fuerza;
         bool experiencia;
-        pair<shared_ptr<Util>, shared_ptr<Util>> armas;
+        pair<unique_ptr<Util>, unique_ptr<Util>> armas;
         string habilidad;
 
     public:
         //Constructor
-        Guerrero(const string& nombre, int nivel, int vida, int fuerza, bool experiencia, pair<shared_ptr<Util>, shared_ptr<Util>> armas, const string& habilidad);
+        Guerrero(const string& nombre, int nivel, int vida, int fuerza, bool experiencia, pair<unique_ptr<Util>, unique_ptr<Util>> armas, const string& habilidad);
         
         //Getters
         virtual string getNombre() override;
@@ -82,7 +82,7 @@ class Guerrero: public Personaje {
         virtual int getVida() override;
         virtual int getFuerza() override;
         virtual string getHabilidad();  
-        virtual pair<shared_ptr<Util>, shared_ptr<Util>> getArmas() override;
+        virtual const pair<unique_ptr<Util>, unique_ptr<Util>>& getArmas() const override;
 
         //Métodos
         virtual void morir() override;

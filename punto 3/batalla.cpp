@@ -41,7 +41,7 @@ void displayArmas(){
     cout << "\nARMAS DE COMBATE\n5. Espada\n6. Garrote\n7. Hacha Simple\n8. Hacha Doble\n9. Lanza" << endl;
 }
 
-shared_ptr<Util> elegirArma(){
+unique_ptr<Util> elegirArma(){
     //A partir de la opción de Arma elegida (se corresponde con los valores de la clase Armas), utilizo la función realizada en el punto 2 para crearla
     int opcion;
     while(true){
@@ -97,15 +97,15 @@ Ataque ataqueRival(){
     return static_cast<Ataque>(generar_numero(1, 3));
 }
 
-shared_ptr<Util> armarival(bool esGuerrero){
+unique_ptr<Util> armarival(bool esGuerrero){
     return generarArmaRandom(esGuerrero);
 }
 
-shared_ptr<Personaje> personajeRival(shared_ptr<Util> armaj2, bool esGuerrero){
-    return generarPersonajeRandom(esGuerrero, {armaj2, nullptr});  
+shared_ptr<Personaje> personajeRival(unique_ptr<Util> armaj2, bool esGuerrero){
+    return generarPersonajeRandom(esGuerrero, {move(armaj2), nullptr});  
 }
 
-void simularBatalla(shared_ptr<Personaje> jugador1, shared_ptr<Util> armaj1, shared_ptr<Personaje> jugador2, shared_ptr<Util> armaj2){
+void simularBatalla(shared_ptr<Personaje> jugador1, unique_ptr<Util> armaj1, shared_ptr<Personaje> jugador2, unique_ptr<Util> armaj2){
     int hp1 = jugador1->getVida();
     int hp2 = jugador2->getVida();
     int ronda = 1;
@@ -121,27 +121,29 @@ void simularBatalla(shared_ptr<Personaje> jugador1, shared_ptr<Util> armaj1, sha
         //Impresión del HP de cada jugador
         cout << "El " << jugador1->getNombre() << " tiene " << hp1 << " HP y el " << jugador2->getNombre() << " tiene " << hp2 << " HP" << endl;
 
+        
         //Casos de la batalla
         if (ataquej2 == ataquej1){
             cout << "Ambos han elegido " << toStringAtaque(ataquej1) << endl;
             cout << "\n¡Empate!" << endl;
         }
-
+        
         else if ((ataquej1 == Ataque:: golpefuerte && ataquej2 == Ataque:: golperapido) || 
                  (ataquej1 == Ataque:: golperapido && ataquej2 == Ataque:: defensaygolpe) ||
                  (ataquej1 == Ataque:: defensaygolpe && ataquej2 == Ataque:: golpefuerte)){
+            
             
             cout << "El " << jugador1->getNombre() << " ataca con " << armaj1->getNombre() << " y hace 10 puntos de daño " <<endl;
             cout << "\n¡Has ganado el turno!" << endl;
             hp2 -= 10; 
         }
-
+        /*
         else{
             cout << "El " << jugador2->getNombre() << " ataca con " << armaj2->getNombre() << " y hace 10 puntos de daño " <<endl;
             cout << "\n¡Has perdido el turno!" << endl;
             hp1 -=10;
         }
-
+        */
     ronda ++; 
     cout << "-------------------------" << endl; 
     }

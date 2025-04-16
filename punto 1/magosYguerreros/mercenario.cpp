@@ -1,7 +1,7 @@
 #include "mercenario.h"
 
 //Constructor
-Mercenario:: Mercenario(const string& nombre_mercenario, int nivel_mercenario, int vida_mercenario, int fuerza_mercenario, bool experiencia_mercenario, pair<shared_ptr<Util>, shared_ptr<Util>> armas_mercenario, const string& habilidad_mercenario, int precision_mercenario): Guerrero(nombre_mercenario, nivel_mercenario, vida_mercenario, fuerza_mercenario, experiencia_mercenario, armas_mercenario, habilidad_mercenario), precision(precision_mercenario) {}
+Mercenario:: Mercenario(const string& nombre_mercenario, int nivel_mercenario, int vida_mercenario, int fuerza_mercenario, bool experiencia_mercenario, pair<unique_ptr<Util>, unique_ptr<Util>> armas_mercenario, const string& habilidad_mercenario, int precision_mercenario): Guerrero(nombre_mercenario, nivel_mercenario, vida_mercenario, fuerza_mercenario, experiencia_mercenario, move(armas_mercenario), habilidad_mercenario), precision(precision_mercenario) {}
 
 //Getters
 int Mercenario:: getPrecision() { return precision; }

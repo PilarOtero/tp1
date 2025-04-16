@@ -7,7 +7,7 @@ class Nigromante: public Mago {
     
     public:
         //Constructor
-        Nigromante(const string& nombre, int nivel, int vida, int fuerza, const string& poder, bool experiencia, pair<shared_ptr<Util>, shared_ptr<Util>> armas, int absorcionVida, int energiaMuerte);
+        Nigromante(const string& nombre, int nivel, int vida, int fuerza, const string& poder, bool experiencia, pair<unique_ptr<Util>, unique_ptr<Util>> armas, int absorcionVida, int energiaMuerte);
     
         //Getter
         int getEnergiaMuerte();

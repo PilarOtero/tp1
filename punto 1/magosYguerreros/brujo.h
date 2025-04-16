@@ -9,7 +9,7 @@ class Brujo: public Mago {
     
     public:
         //Constructor
-        Brujo(const string& nombre, int nivel, int vida, int fuerza, const string& poder, bool experiencia, pair<shared_ptr<Util>, shared_ptr<Util>> armas_brujo, bool veElFuturo, const string& tipoDeMagia);
+        Brujo(const string& nombre, int nivel, int vida, int fuerza, const string& poder, bool experiencia, pair<unique_ptr<Util>, unique_ptr<Util>> armas_brujo, bool veElFuturo, const string& tipoDeMagia);
         
         //Getter
         bool getVeElFuturo();

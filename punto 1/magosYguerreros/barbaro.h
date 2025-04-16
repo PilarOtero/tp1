@@ -8,7 +8,7 @@ class Barbaro: public Guerrero {
         bool furioso;
     public:
         //Constructor
-        Barbaro(const string& nombre, int nivel, int vida, int fuerza, bool experiencia, pair<shared_ptr<Util>, shared_ptr<Util>> armas, const string& habilidad);
+        Barbaro(const string& nombre, int nivel, int vida, int fuerza, bool experiencia, pair<unique_ptr<Util>, unique_ptr<Util>> armas, const string& habilidad);
         
         //Getters
         int getVelocidad();

@@ -1,7 +1,7 @@
 #include "barbaro.h"
 
 //Constructor
-Barbaro:: Barbaro(const string& nombre_barbaro, int nivel_barbaro, int vida_barbaro, int fuerza_barbaro, bool experiencia_barbaro,  pair<shared_ptr<Util>, shared_ptr<Util>> armas_barbaro, const string& habilidad_barbaro): Guerrero(nombre_barbaro, nivel_barbaro, vida_barbaro, fuerza_barbaro, experiencia_barbaro, armas_barbaro, habilidad_barbaro) {}
+Barbaro:: Barbaro(const string& nombre_barbaro, int nivel_barbaro, int vida_barbaro, int fuerza_barbaro, bool experiencia_barbaro,  pair<unique_ptr<Util>, unique_ptr<Util>> armas_barbaro, const string& habilidad_barbaro): Guerrero(nombre_barbaro, nivel_barbaro, vida_barbaro, fuerza_barbaro, experiencia_barbaro, move(armas_barbaro), habilidad_barbaro) {}
 
 //Getters
 int Barbaro:: getVelocidad() { return velocidad; }

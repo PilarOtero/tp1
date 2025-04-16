@@ -8,7 +8,7 @@ class Hechicero: public Mago {
     
     public:
         //Constructor
-        Hechicero(const string& nombre, int nivel, int vida, int fuerza, const string& poder, bool experiencia, pair<shared_ptr<Util>, shared_ptr<Util>> armas, int edad);  
+        Hechicero(const string& nombre, int nivel, int vida, int fuerza, const string& poder, bool experiencia, pair<unique_ptr<Util>, unique_ptr<Util>> armas, int edad);  
 
         //Getter
         int getEdad();

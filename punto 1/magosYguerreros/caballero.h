@@ -6,7 +6,7 @@ class Caballero: public Guerrero {
         string tipoDeCaballero;
     public:
         //Constructor
-        Caballero(const string& nombre, int nivel, int vida, int fuerza, bool experiencia, pair<shared_ptr<Util>, shared_ptr<Util>> armas, const string& habilidad, int nivelDeValentia, const string& tipoDeCaballero);
+        Caballero(const string& nombre, int nivel, int vida, int fuerza, bool experiencia, pair<unique_ptr<Util>, unique_ptr<Util>> armas, const string& habilidad, int nivelDeValentia, const string& tipoDeCaballero);
         
         //Getters
         int getnivelDeValentia();

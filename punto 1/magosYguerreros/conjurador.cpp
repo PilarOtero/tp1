@@ -1,7 +1,7 @@
 #include "conjurador.h"
 
 //Constructor
-Conjurador:: Conjurador(const string& nombre_conjurador, int nivel_conjurador, int vida_conjurador, int fuerza_conjurador, const string& poder_conjurador, bool experiencia_conjurador, pair<shared_ptr<Util>, shared_ptr<Util>> armas_conjurador, const string& conjuroSecreto_conjurador): Mago(nombre_conjurador, nivel_conjurador, vida_conjurador, fuerza_conjurador, poder_conjurador, experiencia_conjurador, armas_conjurador), conjuroSecreto(conjuroSecreto_conjurador) {}
+Conjurador:: Conjurador(const string& nombre_conjurador, int nivel_conjurador, int vida_conjurador, int fuerza_conjurador, const string& poder_conjurador, bool experiencia_conjurador, pair<unique_ptr<Util>, unique_ptr<Util>> armas_conjurador, const string& conjuroSecreto_conjurador): Mago(nombre_conjurador, nivel_conjurador, vida_conjurador, fuerza_conjurador, poder_conjurador, experiencia_conjurador, move(armas_conjurador)), conjuroSecreto(conjuroSecreto_conjurador) {}
 
 //Getter
 string Conjurador:: getConjuroSecreto() { return conjuroSecreto; }

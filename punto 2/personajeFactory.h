@@ -57,6 +57,6 @@ enum class Armas {
 class PersonajeFactory {
     public: 
         static shared_ptr<Personaje> crearPersonaje(Personajes personaje);
-        static shared_ptr<Util> crearArma(Armas arma);
-        static shared_ptr<Personaje> crearPersonajeArmado(Personajes personaje, pair<shared_ptr<Util>, shared_ptr<Util>> armas);
+        static unique_ptr<Util> crearArma(Armas arma);
+        static shared_ptr<Personaje> crearPersonajeArmado(Personajes personaje, pair<unique_ptr<Util>, unique_ptr<Util>> armas);
 };

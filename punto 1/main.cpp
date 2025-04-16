@@ -8,114 +8,60 @@ using namespace std;
 int main (){
     //CREACIÓN ARMAS
     //Items Mágicos
-    shared_ptr<Baston> baston = make_shared<Baston>("Baston Magico", "Ilumina solamente la vista de quien lo posee", 1, 10, 15, true, true);
-    shared_ptr<LibroDeHechizos> libro = make_shared<LibroDeHechizos>("Libro de Hechizos", "Quien lo posee, lograra conocer todos los hechizos secretos", 100, 10, 100, true, vector<string>{"Congelamiento", "Triunfo automatico", "Destruccion del oponente"});
-    shared_ptr<Pocion> pocion = make_shared<Pocion>("Pocion Magica", "Quien la tome, sanara de cualquier mal", 5, 5, 50, true, "violeta");
-    shared_ptr<Amuleto> amuleto = make_shared<Amuleto>("Amuleto Magico", "Quien lo posea, tendra suerte en todos los enfrentamientos", 10, 3, 20, true, true);
+    unique_ptr<Baston> baston = make_unique<Baston>("Baston Magico", "Ilumina solamente la vista de quien lo posee", 1, 10, 15, true, true);
+    unique_ptr<Pocion> pocion = make_unique<Pocion>("Pocion Magica", "Quien la tome, sanara de cualquier mal", 5, 5, 50, true, "violeta");
+
+    //INFORMACIÓN ITEMS
+    handle_mostrar_items(baston, pocion);
+
+    //CREACION ITEMS
     //Armas de Combate
-    shared_ptr<HachaSimple> hacha_simple = make_shared<HachaSimple>("Hacha Simple", 20, 10, 1, 2.5, true);
-    shared_ptr<HachaDoble> hacha_doble = make_shared<HachaDoble>("Hacha Doble", 40, 20, 2, 5.0);
-    shared_ptr<Lanza> lanza = make_shared<Lanza>("Lanza", 30, 15, 1, 3.0, 100);
-    shared_ptr<Espada> espada = make_shared<Espada>("Espada", 50, 25, 3, 4.0, true, 100);
-    shared_ptr<Garrote> garrote = make_shared<Garrote>("Garrote", 15, 5, 1, 1.5, true);
+    unique_ptr<Espada> espada = make_unique<Espada>("Espada", 50, 25, 3, 4.0, true, 100);
+    unique_ptr<Garrote> garrote = make_unique<Garrote>("Garrote", 15, 5, 1, 1.5, true);
+
+    //INFORMACIÓN ARMAS
+    handle_mostrar_armas(espada, garrote);
 
     //Asignación de armas a personajes
-    pair<shared_ptr<Util>, shared_ptr<Util>> armas_brujo = make_pair(pocion, baston);
-    pair<shared_ptr<Util>, shared_ptr<Util>> armas_conjurador = make_pair(libro, amuleto);
-    pair<shared_ptr<Util>, shared_ptr<Util>> armas_hechicero = make_pair(amuleto, libro);
-    pair<shared_ptr<Util>, shared_ptr<Util>> armas_nigromante = make_pair(baston, pocion);
-    pair<shared_ptr<Util>, shared_ptr<Util>> armas_gladiador = make_pair(hacha_simple, lanza);
-    pair<shared_ptr<Util>, shared_ptr<Util>> armas_barbaro = make_pair(hacha_doble, lanza);
-    pair<shared_ptr<Util>, shared_ptr<Util>> armas_caballero = make_pair(espada, garrote);
-    pair<shared_ptr<Util>, shared_ptr<Util>> armas_paladin = make_pair(hacha_doble, hacha_simple);
-    pair<shared_ptr<Util>, shared_ptr<Util>> armas_mercenario = make_pair(espada, lanza);
+    pair<unique_ptr<Util>, unique_ptr<Util>> armas_brujo = make_pair(move(pocion), move(baston));
+    pair<unique_ptr<Util>, unique_ptr<Util>> armas_caballero = make_pair(move(espada), move(garrote));
 
     //CREACIÓN PERSONAJES
     //Magos
-    shared_ptr<Brujo> brujo = make_shared<Brujo>("Brujo", 5, 100, 80, "Fuego", true, armas_brujo, true,"Fuego");
-    shared_ptr<Conjurador> conjurador = make_shared<Conjurador>("Conjurador", 6, 100, 25, "Agua", false, armas_conjurador, "Alzamiento de los Muertos");
-    shared_ptr<Hechicero> hechicero = make_shared<Hechicero>("Hechicero", 7, 100, 50, "Rayo", true, armas_hechicero, 80);
-    shared_ptr<Nigromante> nigromante = make_shared<Nigromante>("Nigromante", 8, 100, 100, "Oscuridad", false, armas_nigromante, 70, 100);
-
+    shared_ptr<Brujo> brujo = make_shared<Brujo>("Brujo", 5, 100, 80, "Fuego", true, move(armas_brujo), true,"Fuego");
     //Guerreros
-    shared_ptr<Gladiador> gladiador = make_shared<Gladiador>("Gladiador", 5, 100, 600, true, armas_gladiador, "Correr a tal velocidad que no puede ser visto", 50, true, 15);
-    shared_ptr<Barbaro> barbaro = make_shared<Barbaro>("Barbaro", 3, 100, 300, true, armas_barbaro, "Uso de Hacha");
-    shared_ptr<Caballero> caballero = make_shared<Caballero>("Caballero", 6, 100, 300, false, armas_caballero,"Uso de Espada", 100, "Caballero de la Luz");
-    shared_ptr<Mercenario> mercenario = make_shared<Mercenario>("Mercenario", 4, 100, 150, true, armas_mercenario, "Disparar en el blanco", 90);
-    shared_ptr<Paladin> paladin = make_shared<Paladin>("Paladin", 7, 100, 400, true, armas_paladin,"Uso de Garrote", 3);
-
-    //INFORMACIÓN ITEMS
-    handle_mostrar_items(baston, libro, pocion, amuleto);
-
-    //INFORMACIÓN ARMAS
-    handle_mostrar_armas(hacha_simple, hacha_doble, lanza, espada, garrote);
+    shared_ptr<Caballero> caballero = make_shared<Caballero>("Caballero", 6, 100, 300, false, move(armas_caballero),"Uso de Espada", 100, "Caballero de la Luz");
 
     //EJEMPLOS DE MÉTODOS DE USO
     cout << "------------------------------\nEJEMPLOS DE USO\n" << endl;
-
-    /*En la mayoría de los siguientes tests (de armas), primero me encargo de estar usando el item, y luego de aplicar el método (salvo en el test 
-    para ver si es mágico activo, para comprobar si, al haberse roto la poción, se actualiza el atributo).
-    */
     
     //TEST DE EVOLUCIÓN - ITEM MÁGICO
-    test_evolucionar_item(baston);
-
-    //TEST DE INVOLUCIÓN - ITEM MÁGICO
-    test_involucionar_item(libro);
+    unique_ptr<Baston> baston2 = make_unique<Baston>("Baston Magico 2", "Ilumina solamente la vista de quien lo posee", 1, 10, 15, true, true);
+    test_evolucionar_item(baston2);
 
     //TEST ROMPER - ITEM MÁGICO
-    test_romper_item(pocion);
-
-    //TEST VER SI ES MÁGICO ACTIVO - ITEM MÁGICO
-    test_ver_ma_pocion(pocion);
-
-    //TEST POCIÓN VIOLETA - ITEM MÁGICO
-    test_pocion_magica(pocion);
-
-    //TEST EVOLUCIÓN - ARMA 
-    test_evolucionar_arma(hacha_simple);
+    unique_ptr<Pocion> pocion2 = make_unique<Pocion>("Pocion Magica 2", "Quien la tome, sanara de cualquier mal", 5, 5, 50, true, "violeta");
+    test_romper_item(pocion2);
 
     //TEST DE PESO - ARMA
-    test_ver_peso_arma(espada);
-
-    //TEST DE INVOLUCIÓN - ARMA
-    test_involucionar_garrote(garrote);
+    unique_ptr<Espada> espada2 = make_unique<Espada>("Espada 2", 50, 25, 3, 4.0, true, 100);
+    test_ver_peso_arma(espada2);
 
     //TEST DE REPARACIÓN - ARMA
-    test_reparar_garrote(garrote);
-
-    //TEST ESPADA CORTANTE
-    test_espada_cortante(espada);
-    
-    //TEST FILO - ESPADA
-    test_filo_espada(espada);
+    unique_ptr<Garrote> garrote2 = make_unique<Garrote>("Garrote 2", 15, 5, 1, 1.5, true);
+    test_reparar_garrote(garrote2);
 
     //PERSONAJES
-    
     //Mostrar información de los magos
-    test_mostrarInfo_magos(brujo, conjurador, hechicero, nigromante);
+    test_mostrarInfo_magos(brujo);
 
     //Mostrar información de los guerreros
-    test_mostrarInfo_guerreros(gladiador, paladin, caballero, barbaro, mercenario);
+    test_mostrarInfo_guerreros(caballero);
 
     //EJEMPLOS DE MÉTODOS DE USO
     cout << "------------------------------\nEJEMPLOS DE USO\n" << endl;
-
-    //TEST FUERZA - BÁRBARO 
-    test_barbaro_furioso(barbaro, 100);
 
     //TEST FUERZA SECRETA - CABALLERO
     test_usar_fuerzaSecreta_caballero(caballero);
 
-    //TEST TIPO DE CABALLERO
-    test_mostrar_tipoDeCaballero(caballero);
-
-    //TEST AUMENTO DE PRECISIÓN - MERCENARIO
-    test_aumentoPrecision_mercenario(mercenario, 9);
-
-    //TEST ABSORCIÓN DE ENERGIA - NIGROMANTE
-    test_absorberEnergia_nigromante(nigromante);
-
-    //TEST USO DE COMODÍN - PALADÍN
-    test_usarComodinPaladin(paladin);
 }

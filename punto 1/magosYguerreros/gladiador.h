@@ -9,7 +9,7 @@ class Gladiador: public Guerrero {
 
     public:
         //Constructor
-        Gladiador(const string& nombre, int nivel, int vida, int fuerza, bool experiencia, pair<shared_ptr<Util>, shared_ptr<Util>> armas, const string& habilidad, int honor, bool escudo, int velocidad);
+        Gladiador(const string& nombre, int nivel, int vida, int fuerza, bool experiencia, pair<unique_ptr<Util>, unique_ptr<Util>> armas, const string& habilidad, int honor, bool escudo, int velocidad);
         
         //Getters
         int getHonor();
