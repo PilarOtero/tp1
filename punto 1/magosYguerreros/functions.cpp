@@ -17,6 +17,16 @@ void test_usar_fuerzaSecreta_caballero(shared_ptr<Caballero> caballero){
     cout << "------------------------------" << endl;
 }
 
+void test_comodines_paladin(shared_ptr<Paladin> paladin){
+    cout << "TEST COMODINES - PALADIN" << endl;
+    paladin->usarComodin();
+}
+
+void test_barbaro_furioso(shared_ptr<Barbaro> barbaro){
+    cout << "TEST BARBARO FURIOSO" << endl;
+    barbaro->estaFurioso(100);
+}
+
 
 
 

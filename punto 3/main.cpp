@@ -16,5 +16,5 @@ int main(){
     shared_ptr<Personaje> jugador2 = personajeRival(move(armaj2), esGuerrero);
     
     //Simulo la batalla
-    simularBatalla(jugador1, move(armaj1), jugador2, move(armaj2));
+    simularBatalla(jugador1, jugador2);
 }

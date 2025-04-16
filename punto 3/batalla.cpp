@@ -105,10 +105,15 @@ shared_ptr<Personaje> personajeRival(unique_ptr<Util> armaj2, bool esGuerrero){
     return generarPersonajeRandom(esGuerrero, {move(armaj2), nullptr});  
 }
 
-void simularBatalla(shared_ptr<Personaje> jugador1, unique_ptr<Util> armaj1, shared_ptr<Personaje> jugador2, unique_ptr<Util> armaj2){
+void simularBatalla(shared_ptr<Personaje> jugador1, shared_ptr<Personaje> jugador2){
     int hp1 = jugador1->getVida();
     int hp2 = jugador2->getVida();
     int ronda = 1;
+
+    //Arma jugador1
+    Util * armaj1 = jugador1->getArmas().first.get();
+    //Arma jugador2 (rival)
+    Util * armaj2 = jugador2->getArmas().first.get();
     
     while (hp1 > 0 && hp2 > 0){
         cout << "========= RONDA " << ronda << " ========" << endl;
@@ -137,13 +142,13 @@ void simularBatalla(shared_ptr<Personaje> jugador1, unique_ptr<Util> armaj1, sha
             cout << "\n¡Has ganado el turno!" << endl;
             hp2 -= 10; 
         }
-        /*
+        
         else{
             cout << "El " << jugador2->getNombre() << " ataca con " << armaj2->getNombre() << " y hace 10 puntos de daño " <<endl;
             cout << "\n¡Has perdido el turno!" << endl;
             hp1 -=10;
         }
-        */
+        
     ronda ++; 
     cout << "-------------------------" << endl; 
     }

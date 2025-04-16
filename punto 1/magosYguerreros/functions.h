@@ -25,7 +25,8 @@
 void test_mostrarInfo_magos(shared_ptr<Brujo> brujo);
 void test_mostrarInfo_guerreros(shared_ptr<Caballero> caballero);
 void test_usar_fuerzaSecreta_caballero(shared_ptr<Caballero> caballero);
-
+void test_comodines_paladin(shared_ptr<Paladin> paladin);
+void test_barbaro_furioso(shared_ptr<Barbaro> barbaro);
 
 
 

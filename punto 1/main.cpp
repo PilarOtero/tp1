@@ -18,20 +18,29 @@ int main (){
     //Armas de Combate
     unique_ptr<Espada> espada = make_unique<Espada>("Espada", 50, 25, 3, 4.0, true, 100);
     unique_ptr<Garrote> garrote = make_unique<Garrote>("Garrote", 15, 5, 1, 1.5, true);
+    unique_ptr<HachaSimple> hachaSimple = make_unique<HachaSimple>("Hacha Simple", 300, 200, 4, 3, true);
+    unique_ptr<HachaDoble> hachaDoble = make_unique<HachaDoble>("Hacha Doble", 600, 400, 8, 6);
+    unique_ptr<Lanza> lanza = make_unique<Lanza>("Lanza", 190, 300, 2, 6, true);
+    //Creo otro garrote ya que estoy utilizando unique pointers
+    unique_ptr<Garrote> garrote2 = make_unique<Garrote>("Garrote 2", 15, 5, 1, 1.5, true);
 
     //INFORMACIÓN ARMAS
-    handle_mostrar_armas(espada, garrote);
+    handle_mostrar_armas(espada, garrote, hachaSimple);
 
     //Asignación de armas a personajes
     pair<unique_ptr<Util>, unique_ptr<Util>> armas_brujo = make_pair(move(pocion), move(baston));
     pair<unique_ptr<Util>, unique_ptr<Util>> armas_caballero = make_pair(move(espada), move(garrote));
+    pair<unique_ptr<Util>, unique_ptr<Util>> armas_paladin = make_pair(move(hachaSimple), move(hachaDoble));
+    pair<unique_ptr<Util>, unique_ptr<Util>> armas_barbaro = make_pair(move(garrote2), move(lanza));
 
     //CREACIÓN PERSONAJES
     //Magos
     shared_ptr<Brujo> brujo = make_shared<Brujo>("Brujo", 5, 100, 80, "Fuego", true, move(armas_brujo), true,"Fuego");
     //Guerreros
     shared_ptr<Caballero> caballero = make_shared<Caballero>("Caballero", 6, 100, 300, false, move(armas_caballero),"Uso de Espada", 100, "Caballero de la Luz");
-
+    shared_ptr<Paladin> paladin = make_shared<Paladin>("Paladin", 10, 100, 200, true, move(armas_paladin), "Encuentra los pasadizos mas reconditos del Reino usando sus comodines", 3);
+    shared_ptr<Barbaro> barbaro = make_shared<Barbaro>("Barbaro", 10, 100, 200, true, move(armas_barbaro), "Nadie iguala su uso de Fuerza corporal");
+    
     //EJEMPLOS DE MÉTODOS DE USO
     cout << "------------------------------\nEJEMPLOS DE USO\n" << endl;
     
@@ -48,7 +57,6 @@ int main (){
     test_ver_peso_arma(espada2);
 
     //TEST DE REPARACIÓN - ARMA
-    unique_ptr<Garrote> garrote2 = make_unique<Garrote>("Garrote 2", 15, 5, 1, 1.5, true);
     test_reparar_garrote(garrote2);
 
     //PERSONAJES
@@ -63,5 +71,11 @@ int main (){
 
     //TEST FUERZA SECRETA - CABALLERO
     test_usar_fuerzaSecreta_caballero(caballero);
+
+    //TEST COMODINES - PALADIN
+    test_comodines_paladin(paladin);
+
+    //TEST BARBARO FURIOSO
+    test_barbaro_furioso(barbaro);
 
 }

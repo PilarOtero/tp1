@@ -17,11 +17,11 @@ void handle_mostrar_items(unique_ptr<Baston>& baston, unique_ptr<Pocion>& pocion
     pocion->mostrarInfo();
 }
 
-void handle_mostrar_armas(unique_ptr<Espada>& espada, unique_ptr<Garrote>& garrote) {
+void handle_mostrar_armas(unique_ptr<Espada>& espada, unique_ptr<Garrote>& garrote, unique_ptr<HachaSimple>& hacha) {
     cout << "------------------------------\nSECCIÓN ARMAS DE COMBATE" << endl;   
     espada->mostrarInfo();
     garrote->mostrarInfo();
-
+    hacha->mostrarInfo();
 }
 
 void test_evolucionar_item(unique_ptr<Baston>& baston){

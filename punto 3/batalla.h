@@ -31,6 +31,6 @@ unique_ptr<Util> armarival(bool esGuerrero);
 shared_ptr<Personaje> personajeRival(unique_ptr<Util> armaj2, bool esGuerrero);
 
 //SIMULACIÓN
-void simularBatalla(shared_ptr<Personaje> jugador1, unique_ptr<Util> armaj1, shared_ptr<Personaje> jugador2, unique_ptr<Util> armaj2);
+void simularBatalla(shared_ptr<Personaje> jugador1, shared_ptr<Personaje> jugador2);
 
 
